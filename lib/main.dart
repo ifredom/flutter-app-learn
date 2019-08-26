@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'row.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -7,12 +7,8 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(title: Text('抽屉')),
         body: new Center(
           //中央内容部分body
-          child: new Text(
-            'HomePage',
-            style: new TextStyle(fontSize: 35.0),
-          ),
-        ),
-        endDrawer: Text('test'),
+          child: FlexLayoutTestRoute(),
+        )
       );
   }
 }

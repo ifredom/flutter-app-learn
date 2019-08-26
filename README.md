@@ -1,6 +1,8 @@
 # first_flutter_app
 
-A new Flutter application.
+A new Flutter application. flutter_learn_ex中是具体的学习步骤以及每一个组件的练习代码
+
+
 
 ## 开发必备
 

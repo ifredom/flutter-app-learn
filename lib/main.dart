@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'row.dart';
+import 'pages/row.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('抽屉')),
-        body: new Center(
-          //中央内容部分body
-          child: AlignLayoutTest(),
-        )
-      );
+    return CounterWidget();
+    // return Text("xxx");
   }
 }
 

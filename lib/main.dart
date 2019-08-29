@@ -3,7 +3,9 @@ import 'pages/row.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureWidget();
+    return IfredomWidget(
+      // text: 'hahahhah',
+    );
     // return Text("xxx");
   }
 }

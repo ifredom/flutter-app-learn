@@ -61,3 +61,37 @@ flutter:
 * 当Switch或Checkbox被点击时，会触发它们的onChanged回调，我们可以在此回调中处理选中状态改变逻辑。
 * 局限：到目前为止，Checkbox的尺寸大小是固定的，无法自定义，而Switch只能定义宽度，高度也是固定的。
 * 挺脑残的设计：CheckboxListTile, Slider 是flutter额外封装的组件，挺漂亮的，但是对于实际项目种定制的UI来说基本属于无用。为了使用flutter的这个现成组件，UI设计时需要考虑到这几个UI组件。
+
+## TextField & Form
+
+```dash
+//  const TextField({
+//   ...
+//   TextEditingController controller, 
+//   FocusNode focusNode,
+//   InputDecoration decoration = const InputDecoration(),
+//   TextInputType keyboardType,
+//   TextInputAction textInputAction,
+//   TextStyle style,
+//   TextAlign textAlign = TextAlign.start,
+//   bool autofocus = false,
+//   bool obscureText = false,
+//   int maxLines = 1,
+//   int maxLength,
+//   bool maxLengthEnforced = true,
+//   ValueChanged<String> onChanged,
+//   VoidCallback onEditingComplete,
+//   ValueChanged<String> onSubmitted,
+//   List<TextInputFormatter> inputFormatters,
+//   bool enabled,
+//   this.cursorWidth = 2.0,
+//   this.cursorRadius,
+//   this.cursorColor,
+//   ...
+// })
+```
+
+## Widget
+
+自定义widget组件。
+在 Flutter 中，推荐组合多个小的 Widgets 来构建一个自定义的 Widget（而不是扩展它）

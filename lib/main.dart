@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
 import 'pages/row.dart';
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IfredomWidget(
-      // text: 'hahahhah',
-    );
-    // return Text("xxx");
-  }
-}
 
 void main() => runApp(App());
 
@@ -21,5 +12,13 @@ class App extends StatelessWidget {
         home: Scaffold(
           body: new HomePage(),
         ));
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return IfredomTextField();
+    // return Text("xxx");
   }
 }

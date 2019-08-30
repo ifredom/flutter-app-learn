@@ -1,70 +1,109 @@
 import 'package:flutter/material.dart';
 
-class IfredomWidget extends StatefulWidget {
+class IfredomTextField extends StatefulWidget {
   @override
-  _IfredomWidgetState createState() => _IfredomWidgetState();
+  _IfredomTextFieldState createState() => _IfredomTextFieldState();
 }
 
-class _IfredomWidgetState extends State<IfredomWidget> {
-  bool _switch = false;
-  bool _checkbox = false;
-  double _slider = 0;
-  var timeDilation =0;
+class _IfredomTextFieldState extends State<IfredomTextField> {
+  // 申明焦点
+  FocusNode focusNodeUser = new FocusNode();
+  FocusNode focusNodePwd = new FocusNode();
+  FocusScopeNode focusScopeNode;
+
+  TextEditingController _selectionController = TextEditingController();
+  // _selectionController.text="hello world!";
+  // _selectionController.selection=TextSelection(
+  //     baseOffset: 2,
+  //     extentOffset: _selectionController.text.length
+  // );
+
+  // initState 只会在初始化时执行一次，所以如果是在初始化之后设置的监听
+  // 需要销毁该widget（注释掉）后再重新加载一次
+  @override
+  void initState() {
+    super.initState();
+
+    focusNodeUser.addListener(() {
+      print(focusNodeUser.hasFocus);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Switch(
-          value: _switch,
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          activeTrackColor: Colors.green,
-          activeThumbImage: AssetImage("images/image/advator.jpg"),
-          onChanged: (val) {
-            print(val);
-            setState(() {
-              _switch = val;
-            });
-          },
-        ),
-        Checkbox(
-          value: _checkbox,
-          tristate: true,
-          activeColor: Colors.red, //选中时的颜色
-          onChanged: (val) {
-            print(val);
-            setState(() {
-              _checkbox = val;
-            });
-          },
-        ),
-        Slider(
-          value: _slider,
-          onChanged: (val) {
-            print(val);
-              setState(() {
-              _slider = val;
-            });
-          },
-        ),
-        CheckboxListTile(
-          title: const Text('选项一'),
-          value: timeDilation != 1,
-          onChanged: (bool value) {
-            setState(() { timeDilation = value ? 10 : 1; });
-          },
-          secondary: const Icon(Icons.wrap_text),
-        ),
-        CheckboxListTile(
-          title: const Text('选项二'),
-          value: timeDilation != 1,
-          onChanged: (bool value) {
-            setState(() { timeDilation = value ? 10 : 1; });
-          },
-          secondary: const Icon(Icons.wrap_text),
-        )
-      ],
-    );
+    return Column(children: <Widget>[
+      TextField(
+        autofocus: true,
+        keyboardType: TextInputType.number,
+        focusNode: focusNodeUser,
+        controller: _selectionController,
+        decoration:
+            InputDecoration(labelText: "数字用户名输入框", hintText: "用户名placefolder"),
+      ),
+      TextField(
+        focusNode: focusNodePwd,
+        decoration: InputDecoration(
+            labelText: "本地文字",
+            hintText: "本地文字placefolder",
+            prefixIcon: Icon(Icons.person)),
+      ),
+      Builder(builder: (context) {
+        return Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text('移动焦点'),
+              onPressed: () {
+                // 移动焦点
+                // 这是一种写法
+                FocusScope.of(context).requestFocus(focusNodePwd);
+                // 这是第二种写法
+                // if (null == focusScopeNode) {
+                //   focusScopeNode = FocusScope.of(context);
+                // }
+                // focusScopeNode.requestFocus(focusNodePwd);
+              },
+            ),
+            RaisedButton(
+              child: Text('隐藏键盘'),
+              onPressed: () {
+                focusNodeUser.unfocus();
+                focusNodePwd.unfocus();
+              },
+            )
+          ],
+        );
+      }),
+      RaisedButton(
+          child: Text('alertDialog'),
+          onPressed: () {
+            print(new Point(2, 3).y);
+            showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                      title: Text('提示！'),
+                      content: Text('前方高能预警'),
+                      actions: <Widget>[
+                        FlatButton(
+                          child: Text('取消'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        FlatButton(
+                          child: Text('确定'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    ));
+          })
+    ]);
   }
+}
+
+class Point {
+  final x;
+  final y;
+  Point(this.x, this.y);
 }

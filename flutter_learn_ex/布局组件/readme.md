@@ -7,6 +7,11 @@
 * Container
 * Scafflod
 
+尺寸限制类Widget，如:
+
+* ConstrainedBox
+* SizedBox
+
 ## 常用布局方式
 
 选择一种自己喜欢的布局方式去熟悉，我选择flex布局

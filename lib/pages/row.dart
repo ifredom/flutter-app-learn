@@ -1,109 +1,45 @@
 import 'package:flutter/material.dart';
 
-class IfredomTextField extends StatefulWidget {
+class ProgressRoute extends StatefulWidget {
   @override
-  _IfredomTextFieldState createState() => _IfredomTextFieldState();
+  _ProgressRouteState createState() => _ProgressRouteState();
 }
 
-class _IfredomTextFieldState extends State<IfredomTextField> {
-  // 申明焦点
-  FocusNode focusNodeUser = new FocusNode();
-  FocusNode focusNodePwd = new FocusNode();
-  FocusScopeNode focusScopeNode;
+class _ProgressRouteState extends State<ProgressRoute>
+    with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
 
-  TextEditingController _selectionController = TextEditingController();
-  // _selectionController.text="hello world!";
-  // _selectionController.selection=TextSelection(
-  //     baseOffset: 2,
-  //     extentOffset: _selectionController.text.length
-  // );
-
-  // initState 只会在初始化时执行一次，所以如果是在初始化之后设置的监听
-  // 需要销毁该widget（注释掉）后再重新加载一次
   @override
   void initState() {
+    //动画执行时间3秒
+    _animationController = new AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animationController.forward();
+    _animationController.addListener(() => setState(() => {}));
     super.initState();
+  }
 
-    focusNodeUser.addListener(() {
-      print(focusNodeUser.hasFocus);
-    });
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      TextField(
-        autofocus: true,
-        keyboardType: TextInputType.number,
-        focusNode: focusNodeUser,
-        controller: _selectionController,
-        decoration:
-            InputDecoration(labelText: "数字用户名输入框", hintText: "用户名placefolder"),
-      ),
-      TextField(
-        focusNode: focusNodePwd,
-        decoration: InputDecoration(
-            labelText: "本地文字",
-            hintText: "本地文字placefolder",
-            prefixIcon: Icon(Icons.person)),
-      ),
-      Builder(builder: (context) {
-        return Column(
-          children: <Widget>[
-            RaisedButton(
-              child: Text('移动焦点'),
-              onPressed: () {
-                // 移动焦点
-                // 这是一种写法
-                FocusScope.of(context).requestFocus(focusNodePwd);
-                // 这是第二种写法
-                // if (null == focusScopeNode) {
-                //   focusScopeNode = FocusScope.of(context);
-                // }
-                // focusScopeNode.requestFocus(focusNodePwd);
-              },
+    return SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(50),
+            child: LinearProgressIndicator(
+              backgroundColor: Colors.grey[200],
+              valueColor: ColorTween(begin: Colors.grey, end: Colors.blue)
+                  .animate(_animationController), // 从灰色变成蓝色
+              value: _animationController.value,
             ),
-            RaisedButton(
-              child: Text('隐藏键盘'),
-              onPressed: () {
-                focusNodeUser.unfocus();
-                focusNodePwd.unfocus();
-              },
-            )
-          ],
-        );
-      }),
-      RaisedButton(
-          child: Text('alertDialog'),
-          onPressed: () {
-            print(new Point(2, 3).y);
-            showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                      title: Text('提示！'),
-                      content: Text('前方高能预警'),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text('取消'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        FlatButton(
-                          child: Text('确定'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    ));
-          })
-    ]);
+          )
+        ],
+      ),
+    );
   }
-}
-
-class Point {
-  final x;
-  final y;
-  Point(this.x, this.y);
 }

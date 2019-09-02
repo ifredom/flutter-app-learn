@@ -1,85 +1,76 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/pages/drawerScaffold.dart';
 // 底部导航栏
 
-class ScaffoldRoute extends StatefulWidget {
+class InfiniteListView extends StatefulWidget {
   @override
-  _ScaffoldRouteState createState() => _ScaffoldRouteState();
+  _InfiniteListViewState createState() => _InfiniteListViewState();
 }
 
-class _ScaffoldRouteState extends State<ScaffoldRoute>
-    with SingleTickerProviderStateMixin {
-
-  int _selectedIndex = 0;
-  TabController _tabController; //需要定义一个Controller
-  List tabs = ["新闻", "历史", "图片"];
+class _InfiniteListViewState extends State<InfiniteListView> {
+  static const loadingTag = '##loading##';
+  var _words = <String>[loadingTag];
 
   @override
   void initState() {
     super.initState();
-    // 创建Controller
-    _tabController = TabController(length: tabs.length, vsync: this);
+    _retrieveData();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('App title3'),
-        actions: <Widget>[
-          // 导航栏右侧菜单
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {},
-          )
-        ],
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: [
-            Tab(icon: Icon(Icons.directions_car)),
-            Tab(icon: Icon(Icons.directions_transit)),
-            Tab(icon: Icon(Icons.directions_bike)),
-          ],
-        ),
-      ),
-      drawer: HomeBuilder.drwarRender(), // 抽屉
-      bottomNavigationBar: BottomAppBar( // 底部导航
-        color: Colors.lightGreenAccent,
-        shape: CircularNotchedRectangle(), // 底部打洞
-        child: Row(
-          children: <Widget>[
-            IconButton(icon: Icon(Icons.home),onPressed: () {},),
-            SizedBox(),
-            IconButton(icon: Icon(Icons.business),onPressed: () {},),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
-        ),
-      ),
-      floatingActionButtonLocation:FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton( //悬浮按钮
-          child: Icon(Icons.add),
-          onPressed:_onAdd
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: tabs.map((e) {
-          //创建3个Tab页
-          return Container(
-            alignment: Alignment.center,
-            child: Text(e, textScaleFactor: 5),
-          );
-        }).toList(),
-      ),
+    return ListView.separated(
+      itemCount: _words.length,
+      itemBuilder: (context, index) {
+        // 如果到了列表末尾
+        if (_words[index] == loadingTag) {
+          // 不足100条，则继续获取数据
+          if (_words.length - 1 < 10) {
+            _retrieveData();
+            // 加载时显示loading
+            return Container(
+              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: 24.0,
+                height: 24.0,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                ),
+              ),
+            );
+          } else {
+            // 已经到了100条数据，不再加载
+            return Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(16),
+              child: Text(
+                '没有更多了',
+                style: TextStyle(color: Colors.lightGreen),
+              ),
+            );
+          }
+        }
+
+        // 显示单词列表项
+        return ListTile(title: Text(_words[index]));
+      },
+      separatorBuilder: (context, index) => Divider(height: .0),
     );
-  }
+  } 
 
-  void _onItemTapped(int index){
-    setState(() {
-     _selectedIndex =index; 
+  void _retrieveData() {
+    Future.delayed(Duration(seconds: 2)).then((e) {
+      _words.insertAll(
+        _words.length - 1,
+        generateWordPairs().take(10).map((e) {
+          return e.asPascalCase;
+        }).toList(),
+      );
+
+      setState(() {
+        // 重新构建列表
+      });
     });
-  }
-
-  void _onAdd(){
-    
   }
 }

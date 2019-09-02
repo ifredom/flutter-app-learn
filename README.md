@@ -1,8 +1,10 @@
 # first_flutter_app
 
-A new Flutter application. flutter_learn_ex 中是具体的学习步骤以及每一个组件的练习代码
+A new Flutter application.
 
-## 开发壁纸
+`flutter_learn_ex` 中是具体的渐进学习步骤以及对应每一个组件的练习代码.
+
+## 开发必知
 
 ```bash
   # 运行.项目根目录下
@@ -23,4 +25,8 @@ A new Flutter application. flutter_learn_ex 中是具体的学习步骤以及每
 alt + click（鼠标左键） 进入该对象查看属性
 alt + left (左箭头) 后退返回的项目页
 
-vscode 中如果按下 `alt+shift+F`格式化快捷键，结果可能会很奇怪，解决办法是：每一个属性末尾带上一个逗号！
+vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不够整齐，解决办法是：每一个属性末尾带上一个逗号！
+
+## snippet 快速coding技巧
+
+输入属性中得驼峰字母可以提高效率。比如我们要写一个属性:  `ListTitle()`,可以输入`lt`,此时会自动给出对应提示,其中就有`ListTitle`。

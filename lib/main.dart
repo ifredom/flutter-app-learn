@@ -18,7 +18,7 @@ class App extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ClipTestRoute();
+    return ScaffoldRoute();
     // return Text("xxx");
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/pages/drawerScaffold.dart';
+
 // 底部导航栏
 
 class ScaffoldRoute extends StatefulWidget {
@@ -9,8 +9,6 @@ class ScaffoldRoute extends StatefulWidget {
 
 class _ScaffoldRouteState extends State<ScaffoldRoute>
     with SingleTickerProviderStateMixin {
-
-  int _selectedIndex = 0;
   TabController _tabController; //需要定义一个Controller
   List tabs = ["新闻", "历史", "图片"];
 
@@ -42,24 +40,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
           ],
         ),
       ),
-      drawer: HomeBuilder.drwarRender(), // 抽屉
-      bottomNavigationBar: BottomAppBar( // 底部导航
-        color: Colors.lightGreenAccent,
-        shape: CircularNotchedRectangle(), // 底部打洞
-        child: Row(
-          children: <Widget>[
-            IconButton(icon: Icon(Icons.home),onPressed: () {},),
-            SizedBox(),
-            IconButton(icon: Icon(Icons.business),onPressed: () {},),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
-        ),
-      ),
-      floatingActionButtonLocation:FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton( //悬浮按钮
-          child: Icon(Icons.add),
-          onPressed:_onAdd
-      ),
+      // drawer: new MyDrawer(), // 抽屉
       body: TabBarView(
         controller: _tabController,
         children: tabs.map((e) {
@@ -71,15 +52,5 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
         }).toList(),
       ),
     );
-  }
-
-  void _onItemTapped(int index){
-    setState(() {
-     _selectedIndex =index; 
-    });
-  }
-
-  void _onAdd(){
-    
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/pages/drawerScaffold.dart';
+
 // 底部导航栏
 
 class ScaffoldRoute extends StatefulWidget {
@@ -42,20 +42,17 @@ class _ScaffoldRouteState extends State<ScaffoldRoute>
           ],
         ),
       ),
-      drawer: HomeBuilder.drwarRender(), // 抽屉
-      bottomNavigationBar: BottomAppBar( // 底部导航
-        color: Colors.lightGreenAccent,
-        shape: CircularNotchedRectangle(), // 底部打洞
-        child: Row(
-          children: <Widget>[
-            IconButton(icon: Icon(Icons.home),onPressed: () {},),
-            SizedBox(),
-            IconButton(icon: Icon(Icons.business),onPressed: () {},),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
-        ),
+      // drawer: new MyDrawer(), // 抽屉
+      bottomNavigationBar: BottomNavigationBar( // 底部导航
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
+          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
+        ],
+        currentIndex: _selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
       ),
-      floatingActionButtonLocation:FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton( //悬浮按钮
           child: Icon(Icons.add),
           onPressed:_onAdd

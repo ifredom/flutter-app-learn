@@ -17,6 +17,7 @@ dependencies:
    # 新添加的依赖
   dio: ^2.1.16
   flutter_spinkit: "^4.0.0"
+  url_launcher: "5.1.2"
 
 dev_dependencies:
   flutter_test:

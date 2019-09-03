@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_flutter_app/utils/fonts.dart';
 
 class IfredomTextField extends StatefulWidget {
   @override
@@ -31,10 +32,10 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
 
   @override
   Widget build(BuildContext context) {
-  
     _selectionController.text = "hello world!";
-    _selectionController.selection = TextSelection(baseOffset: 2, extentOffset: _selectionController.text.length);
-    
+    _selectionController.selection = TextSelection(
+        baseOffset: 2, extentOffset: _selectionController.text.length);
+
     return Column(children: <Widget>[
       TextField(
         autofocus: true,
@@ -47,9 +48,10 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
       TextField(
         focusNode: focusNodePwd,
         decoration: InputDecoration(
-            labelText: "本地文字",
-            hintText: "本地文字placefolder",
-            prefixIcon: Icon(Icons.person)),
+          labelText: "本地文字",
+          hintText: "本地文字placefolder",
+          prefixIcon: Icon(Icons.person),
+        ),
       ),
       Builder(builder: (context) {
         return Column(
@@ -73,35 +75,37 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
                 focusNodeUser.unfocus();
                 focusNodePwd.unfocus();
               },
-            )
+            ),
           ],
         );
       }),
       RaisedButton(
-          child: Text('alertDialog'),
-          onPressed: () {
-            print(new Point().y);
-            showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                      title: Text('提示！'),
-                      content: Text('前方高能预警'),
-                      actions: <Widget>[
-                        FlatButton(
-                          child: Text('取消'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        FlatButton(
-                          child: Text('确定'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    ));
-          })
+        child: Text('alertDialog'),
+        onPressed: () {
+          print(new Point().y);
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('提示！'),
+              content: Text('前方高能预警'),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('取消'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                FlatButton(
+                  child: Text('确定'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     ]);
   }
 }

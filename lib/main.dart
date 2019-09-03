@@ -10,11 +10,11 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      // home: Scaffold(
-      //   body: new HomePage(),
-      // ),
+      home: Scaffold(
+        body: new MyHomePage(),
+      ),
       routes: {
-        "/":(context)=> MyHomePage(), //注册首页路由
+        // "/":(context)=> MyHomePage(), //注册首页路由
         "new_page":(context)=> NewRoute(text:'传参'),
       },
     );

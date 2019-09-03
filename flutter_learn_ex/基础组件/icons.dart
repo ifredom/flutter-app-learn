@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/fonts.dart';
-
+import 'package:first_flutter_app/utils/fonts.dart';
 class IfredomWidget extends StatelessWidget {
   const IfredomWidget({Key key}) : super(key: key);
 

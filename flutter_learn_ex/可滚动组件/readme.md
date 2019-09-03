@@ -19,7 +19,7 @@ SingleChildScrollView({
 })
 ```
 
-## List
+## ListView
 
 ```dash
 ListView({
@@ -51,3 +51,19 @@ ListView({
 - shrinkWrap：该属性表示是否根据子组件的总长度来设置 ListView 的长度，默认值为 false 。默认情况下，ListView 的会在滚动方向尽可能多的占用空间。当 ListView 在一个无边界(滚动方向上)的容器中时，shrinkWrap 必须为 true。
 - addAutomaticKeepAlives：该属性表示是否将列表项（子组件）包裹在 AutomaticKeepAlive 组件中；典型地，在一个懒加载列表中，如果将列表项包裹在 AutomaticKeepAlive 中，在该列表项滑出视口时它也不会被 GC（垃圾回收），它会使用 KeepAliveNotification 来保存其状态。如果列表项自己维护其 KeepAlive 状态，那么此参数必须置为 false。
 - addRepaintBoundaries：该属性表示是否将列表项（子组件）包裹在 RepaintBoundary 组件中。当可滚动组件滚动时，将列表项包裹在 RepaintBoundary 中可以避免列表项重绘，但是当列表项重绘的开销非常小（如一个颜色块，或者一个较短的文本）时，不添加 RepaintBoundary 反而会更高效。和 addAutomaticKeepAlive 一样，如果列表项自己维护其 KeepAlive 状态，那么此参数必须置为 false
+
+## GridView
+
+```dash
+SliverGridDelegateWithFixedCrossAxisCount({
+  @required double crossAxisCount,
+  double mainAxisSpacing = 0.0,
+  double crossAxisSpacing = 0.0,
+  double childAspectRatio = 1.0,
+})
+```
+
+- crossAxisCount：横轴子元素的数量。此属性值确定后子元素在横轴的长度就确定了，即 ViewPort 横轴长度除以 crossAxisCount 的商。
+- mainAxisSpacing：主轴方向的间距。
+- crossAxisSpacing：横轴方向子元素的间距。
+- childAspectRatio：子元素在横轴长度和主轴长度的比例。由于 crossAxisCount 指定后，子元素横轴长度就确定了，然后通过此参数值就可以确定子元素在主轴的长度。

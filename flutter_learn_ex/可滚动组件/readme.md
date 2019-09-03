@@ -67,3 +67,27 @@ SliverGridDelegateWithFixedCrossAxisCount({
 - mainAxisSpacing：主轴方向的间距。
 - crossAxisSpacing：横轴方向子元素的间距。
 - childAspectRatio：子元素在横轴长度和主轴长度的比例。由于 crossAxisCount 指定后，子元素横轴长度就确定了，然后通过此参数值就可以确定子元素在主轴的长度。
+
+## CustomScrollView
+
+CustomScrollView 的子组件必须都是 Sliver
+
+## ScrollController & ScrollPosition
+
+`ScrollController` 用来控制可滚动组件得类，其构造函数为：
+
+```dash
+ScrollController({
+  double initialScrollOffset = 0.0, // 初始滚动位置
+  this.keepScrollOffset = true,// 是否保存滚动位置
+  ...
+})
+```
+
+`ScrollController` 常用的属性和方法：
+
+- offset：可滚动组件当前的滚动位置。
+- jumpTo(double offset)、animateTo(double offset,...)：这两个方法用于跳转到指定的位置，它们不同之处在于，后者在跳转时会执行一个动画，而前者不会。
+
+`ScrollPosition`有两个常用方法：
+animateTo() 和 jumpTo()它们是真正来控制跳转滚动位置的方法，ScrollController 的这两个同名方法，内部最终都会调用 ScrollPosition 的。

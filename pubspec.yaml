@@ -14,10 +14,13 @@ dependencies:
 
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-   # 新添加的依赖
+  # 新添加的依赖
   dio: ^2.1.16
   flutter_spinkit: "^4.0.0"
   url_launcher: "5.1.2"
+  transparent_image: ^1.0.0
+  fluro: ^1.5.1
+  firebase_analytics: ^1.1.0
   english_words: "^3.1.0"
 
 dev_dependencies:
@@ -31,14 +34,11 @@ flutter:
 
   # 应用中适用静态资源:
   assets:
-   - images/image/advator.jpg
-
+    - images/image/advator.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # 自定义字体和图标
   # example:
   # fonts:
@@ -53,5 +53,4 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-
   # 详情插件 https://flutter.dev/custom-fonts/#from-packages

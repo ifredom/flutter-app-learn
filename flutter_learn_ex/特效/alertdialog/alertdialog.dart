@@ -33,7 +33,7 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
                     },
                   ),
                 ],
-              ));
+              )z);
           })
     ]);
   }

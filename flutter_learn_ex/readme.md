@@ -71,3 +71,8 @@ Dart 语言对大部分开发者而言是很陌生的一种语言。google 为�
   - flutte 在页面渲染上面的核心思想是 simple is fast！将 widget 设计成 immutable，所以在数据变化时，flutter 选择重建 widget 树的方式进行数据更新。采用这样方式的好处是框架不需要关心数据影响的范围，简单高效。缺点就是对 GC 会造成压力。
 - 组件描述的复用
   - 既然 widget 都是不可变的。那 widget 可以以较低成本进行复用。在一个真实的渲染树中可能存在同一个 widget 渲染树中不同节点的情况。
+
+## Widget & Element & RenderObject
+
+`Widget` 只是一个配置，`RenderObject` 负责管理布局、绘制等操作。
+而 `Element` 负责链接他们两个。

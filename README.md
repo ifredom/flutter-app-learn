@@ -35,9 +35,12 @@ vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不�
 
 > unfortunately  firstapp has stopped
 
-```dash
+方式一，无效
 
-# 方式一，无效
+```dash
 > flutter clean
 > flutter run
+
 ```
+
+方式二，使用 `Genymotion`创建设备，并 setting->ADB-> Use custom Android SDK tools。 （设置为你得SDK位置即可）

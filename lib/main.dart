@@ -1,18 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
-import 'package:first_flutter_app/utils/analytics.dart' as Analytics;
-import 'package:first_flutter_app/routers/routers.dart';
-import 'package:first_flutter_app/routers/application.dart';
 import 'package:first_flutter_app/pages/home.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp() {
-    final router = new Router();
-    Routes.configureRoutes(router);
-    // 这里设置项目环境
-    Application.router = router;
-  }
-
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -38,11 +27,9 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       home: new Scaffold(
-        body: new PageHome(),
+        body: InheritedWidgetTestRoute(),
+        // body: Text("test"), // 开发测试用于销毁组件
       ),
-      debugShowCheckedModeBanner: false,
-      // onGenerateRoute: Application.router.generator,
-      navigatorObservers: <NavigatorObserver>[Analytics.observer],
     );
   }
 }

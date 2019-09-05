@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:first_flutter_app/pages/home.dart';
 
 class MyApp extends StatefulWidget {
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       home: new Scaffold(
-        body: InheritedWidgetTestRoute(),
+        body: ProviderRoute(),
         // body: Text("test"), // 开发测试用于销毁组件
       ),
     );
@@ -35,5 +36,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 void main() {
+  // 设置全屏
+  SystemChrome.setEnabledSystemUIOverlays([]);
   runApp(MyApp());
 }

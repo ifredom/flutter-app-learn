@@ -1,4 +1,5 @@
 import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import './ChangeNotifierProvider.dart';
 
@@ -44,8 +45,11 @@ class _ProviderRouteState extends State<ProviderRoute> {
             builder: (context) {
               return Column(
                 children: <Widget>[
-                  Consumer<CartModel>(
-                    builder: (context, cart) => Text("总价: ${cart.totalPrice}"),
+                  Builder(
+                    builder: (context) {
+                      var cart = ChangeNotifierProvider.of<CartModel>(context);
+                      return Text("总价： ${cart.totalPrice}");
+                    },
                   ),
                   Builder(
                     builder: (BuildContext context) {
@@ -54,8 +58,7 @@ class _ProviderRouteState extends State<ProviderRoute> {
                         child: Text("添加商品"),
                         onPressed: () {
                           // 给购物车中商品，添加后总价会更新
-                          ChangeNotifierProvider.of<CartModel>(context,
-                                  listen: false)
+                          ChangeNotifierProvider.of<CartModel>(context)
                               .add(Item(20.0, 1));
                         },
                       );
@@ -66,22 +69,5 @@ class _ProviderRouteState extends State<ProviderRoute> {
             },
           )),
     );
-  }
-}
-
-class Consumer<T> extends StatelessWidget {
-  Consumer({
-    Key key,
-    @required this.builder,
-    this.child,
-  })  : assert(builder != null),
-        super(key: key);
-
-  final Widget child;
-  final Widget Function(BuildContext context, T value) builder;
-
-  @override
-  Widget build(BuildContext context) {
-    return builder(context, ChangeNotifierProvider.of<T>(context));
   }
 }

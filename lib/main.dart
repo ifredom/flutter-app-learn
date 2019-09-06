@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       home: new Scaffold(
-        body: ProviderRoute(),
+        body: ScaffoldRoute(),
         // body: Text("test"), // 开发测试用于销毁组件
       ),
     );

@@ -1,87 +1,38 @@
-import 'dart:collection';
 import 'package:flutter/material.dart';
-import './ChangeNotifierProvider.dart';
 
-// 商品信息
-class Item {
-  Item(this.price, this.count);
-  double price;
-  int count;
-}
-
-// 购物车商品数据CartModel类
-class CartModel extends ChangeNotifier {
-  // 购物车里商品列表
-  final List<Item> _items = [];
-
-  // 禁止改变购物车内商品信息
-  UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
-
-  // 购物车中商品的总价
-  double get totalPrice =>
-      _items.fold(0, (value, item) => value + item.count * item.price);
-
-  // 将 [item] 添加到购物车。这是唯一一种能从外部改变购物车的方法。
-  void add(Item item) {
-    _items.add(item);
-    // 通知监听器（订阅者），重新构建InheritedProvider， 更新状态。
-    notifyListeners();
-  }
-}
-
-class ProviderRoute extends StatefulWidget {
+class ScaffoldRoute extends StatefulWidget {
   @override
-  _ProviderRouteState createState() => _ProviderRouteState();
+  _ScaffoldRouteState createState() => _ScaffoldRouteState();
 }
 
-class _ProviderRouteState extends State<ProviderRoute> {
+class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ChangeNotifierProvider<CartModel>(
-          data: CartModel(),
-          child: Builder(
-            builder: (context) {
-              return Column(
-                children: <Widget>[
-                  Consumer<CartModel>(
-                    builder: (context, cart) => Text("总价: ${cart.totalPrice}"),
-                  ),
-                  Builder(
-                    builder: (BuildContext context) {
-                      print("RaisedButton build"); // 优化会用到
-                      return RaisedButton(
-                        child: Text("添加商品"),
-                        onPressed: () {
-                          // 给购物车中商品，添加后总价会更新
-                          ChangeNotifierProvider.of<CartModel>(context,
-                                  listen: false)
-                              .add(Item(20.0, 1));
-                        },
-                      );
-                    },
-                  )
-                ],
-              );
-            },
-          )),
+      child: FutureBuilder<String>(
+        future: mockNetworkData(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          // 请求已结束
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              // 请求失败，显示错误
+              return Text("Error: ${snapshot.error}");
+            } else {
+              // 请求成功，显示数据
+              return Text("Contents: ${snapshot.data}");
+            }
+          } else {
+            // 请求未结束，显示loading
+            return CircularProgressIndicator();
+          }
+        },
+      ),
     );
   }
-}
 
-class Consumer<T> extends StatelessWidget {
-  Consumer({
-    Key key,
-    @required this.builder,
-    this.child,
-  })  : assert(builder != null),
-        super(key: key);
-
-  final Widget child;
-  final Widget Function(BuildContext context, T value) builder;
-
-  @override
-  Widget build(BuildContext context) {
-    return builder(context, ChangeNotifierProvider.of<T>(context));
+  Future<String> mockNetworkData() async {
+    return Future.delayed(Duration(seconds: 2), () {
+      return "我是从互联网上获取的数据";
+    });
   }
 }

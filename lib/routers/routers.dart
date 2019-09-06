@@ -1,5 +1,5 @@
 import 'package:fluro/fluro.dart';
-import './handle.dart';
+import './router_handler.dart';
 
 class Routes {
   static const String splash = '/splash';

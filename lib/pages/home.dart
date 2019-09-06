@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:first_flutter_app/pages/otherOne.dart';
 
-class ScaffoldRoute extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _ScaffoldRouteState createState() => _ScaffoldRouteState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _ScaffoldRouteState extends State<ScaffoldRoute> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FutureBuilder<String>(
-        future: mockNetworkData(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          // 请求已结束
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasError) {
-              // 请求失败，显示错误
-              return Text("Error: ${snapshot.error}");
+    return Column(
+      children: <Widget>[
+        RaisedButton(
+          child: Text('raiseButton'),
+          onPressed: () {
+            String userName = "John Doe";
+            Navigator.push(context, MaterialPageRoute(
+              builder: (BuildContext context) {
+                return new PageOtherOne(userName: userName);
+              },
+            ));
+          },
+        ),
+        FutureBuilder<String>(
+          future: mockNetworkData(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            // 请求已结束
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                // 请求失败，显示错误
+                return Text("Error: ${snapshot.error}");
+              } else {
+                // 请求成功，显示数据
+                return Text("Contents: ${snapshot.data}");
+              }
             } else {
-              // 请求成功，显示数据
-              return Text("Contents: ${snapshot.data}");
+              // 请求未结束，显示loading
+              return CircularProgressIndicator();
             }
-          } else {
-            // 请求未结束，显示loading
-            return CircularProgressIndicator();
-          }
-        },
-      ),
+          },
+        ),
+      ],
     );
   }
 

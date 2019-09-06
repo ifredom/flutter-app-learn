@@ -20,6 +20,7 @@ dependencies:
   url_launcher: "5.1.2"
   transparent_image: ^1.0.0
   fluro: ^1.5.1
+  firebase_analytics: ^1.1.0
   english_words: "^3.1.0"
 
 dev_dependencies:

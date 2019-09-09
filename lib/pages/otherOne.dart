@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PageOtherOne extends StatefulWidget {
+  // final String userName;
   final String userName;
-  PageOtherOne({Key key, this.userName}) : super(key: key);
+  PageOtherOne({Key key, @required this.userName}) : super(key: key);
+
   _PageOtherOneState createState() => _PageOtherOneState();
 }
 

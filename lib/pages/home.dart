@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
                 return new PageOtherOne(userName: userName);
+                // return new Text("123");
               },
             ));
           },

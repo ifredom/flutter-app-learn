@@ -21,8 +21,10 @@ class _PageState extends State<SplashPage> with SingleTickerProviderStateMixin {
     super.initState();
     controller = new AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
-    Animation curve =
+
+    CurvedAnimation curve =
         new CurvedAnimation(parent: controller, curve: Curves.easeOut);
+
     animation = new Tween(begin: 84.0, end: 0.0).animate(curve)
       ..addListener(() {
         setState(() {});

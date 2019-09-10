@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/event/event_bus.dart';
 
 class SecondPage extends StatefulWidget {
   // final String userName;
@@ -15,11 +12,6 @@ class _SecondPageState extends State<SecondPage> {
   @override
   void initState() {
     print(widget.userName);
-
-    bus.on("login", (arg) {
-      // do something
-      print("login message");
-    });
     super.initState();
   }
 
@@ -31,13 +23,9 @@ class _SecondPageState extends State<SecondPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("第二个页面的内容标题"),
-      ),
-      body: Center(
-        child: Text("This is parent params: ${widget.userName}"),
-      ),
+    return Container(
+      alignment: Alignment.center,
+      child: Text("第二个页面的内容标题"),
     );
   }
 }

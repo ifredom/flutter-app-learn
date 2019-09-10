@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:first_flutter_app/event/myself_event_bus.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,7 +19,10 @@ class _LoginPageState extends State<LoginPage> {
       child: RaisedButton(
         child: Text('LOGIN PAGE'),
         onPressed: () {
-          print("LOGIN-IN");
+          print("登录");
+
+          // 登录成功后触发登录事件，页面 first_page 中订阅者会被调用
+          bus.emit("login", 'ifredom');
           Navigator.of(context).pushNamed('/home');
         },
       ),

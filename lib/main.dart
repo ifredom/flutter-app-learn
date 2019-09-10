@@ -5,7 +5,6 @@ import 'package:first_flutter_app/routers/application.dart';
 import 'package:first_flutter_app/routers/routers.dart';
 import 'package:first_flutter_app/utils/analytics.dart' as Analytics;
 import 'package:first_flutter_app/pages/home.dart';
-import 'package:first_flutter_app/event/event_bus.dart';
 import 'package:first_flutter_app/pages/login_page/login_page.dart';
 
 class MyApp extends StatefulWidget {

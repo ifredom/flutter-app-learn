@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 
-import 'package:first_flutter_app/pages/splash.dart';
+import 'package:first_flutter_app/pages/splash_page/splash.dart';
 import 'package:first_flutter_app/pages/home.dart';
-import 'package:first_flutter_app/pages/otherOne.dart';
+import 'package:first_flutter_app/pages/first_page/first_page.dart';
+import 'package:first_flutter_app/pages/second_page/second_page.dart';
+import 'package:first_flutter_app/pages/third_page/third.dart';
 
 // app的首页
 var homeHandler = new Handler(
@@ -12,12 +14,26 @@ var homeHandler = new Handler(
   },
 );
 
-var otherOneHandler = new Handler(
+// 启动页
+var splashPageHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    return new SplashPage();
+  },
+);
+
+var firstPageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return new PageOtherOne();
+  return new FirstPage();
 });
 
-var splashHandler = new Handler(
+var thirdPageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return new PageSplash();
+  return ThirdPage();
+});
+
+var secondPageHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  return SecondPage(
+    userName: 'testParam',
+  );
 });

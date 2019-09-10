@@ -47,6 +47,8 @@ Navigator.of(context).pushNamedAndRemoveUntil(
                 '/otherOne', (Route<dynamic> route) => false);
 ```
 
+- **这里很容易会出现一个报错，找不到 route，是因为 MaterialApp 中的 child 必须要重建 context，使用 builder 包裹一下即可**
+
 > 路由传参
 
 - 在需要接收参数的页面进行参数定义，并加入其构造函数中，在跳转到该页面时，使用 MaterialPageRoute 并在页面中传入参数即可。

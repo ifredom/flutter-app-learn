@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
-import '../widgets/AnimatedImage.dart';
+import '../../widgets/AnimatedImage.dart';
 
-class PageSplash extends StatefulWidget {
+class SplashPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new _PageState();
   }
 }
 
-class _PageState extends State<PageSplash> with SingleTickerProviderStateMixin {
+class _PageState extends State<SplashPage> with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
   bool showLogoAnimation = false;
@@ -66,7 +66,7 @@ class _PageState extends State<PageSplash> with SingleTickerProviderStateMixin {
       return FadeInImage(
           width: 360.0,
           placeholder: MemoryImage(kTransparentImage),
-          image: AssetImage('res/images/splash.png'),
+          image: AssetImage('images/image/splash.png'),
           fit: BoxFit.fill,
           fadeInDuration: Duration(milliseconds: 400));
     } else {

@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/pages/transition_page/fade.dart';
 import 'package:first_flutter_app/pages/transition_page/rotation.dart';
 import 'package:first_flutter_app/pages/transition_page/scale.dart';
 import 'package:first_flutter_app/pages/transition_page/size.dart';
@@ -49,6 +50,13 @@ class _TranstionRoutePageState extends State<TranstionRoutePage> {
               onPressed: () {
                 Navigator.push(
                     context, SizeRoute(page: TargetTestTransition()));
+              },
+            ),
+            RaisedButton(
+              child: Text("渐变动画"),
+              onPressed: () {
+                Navigator.push(
+                    context, FadeRoute(page: TargetTestTransition()));
               },
             ),
           ],

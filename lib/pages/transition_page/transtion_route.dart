@@ -4,6 +4,7 @@ import 'package:first_flutter_app/pages/transition_page/scale.dart';
 import 'package:first_flutter_app/pages/transition_page/size.dart';
 import 'package:first_flutter_app/pages/transition_page/target_page.dart';
 import 'package:first_flutter_app/pages/transition_page/slide_right.dart';
+import 'package:first_flutter_app/pages/transition_page/two_transition.dart';
 import 'package:flutter/material.dart';
 
 class TranstionRoutePage extends StatefulWidget {
@@ -57,6 +58,13 @@ class _TranstionRoutePageState extends State<TranstionRoutePage> {
               onPressed: () {
                 Navigator.push(
                     context, FadeRoute(page: TargetTestTransition()));
+              },
+            ),
+            RaisedButton(
+              child: Text("旋转+缩放动画"),
+              onPressed: () {
+                Navigator.push(
+                    context, TwoTransitionRoute(page: TargetTestTransition()));
               },
             ),
           ],

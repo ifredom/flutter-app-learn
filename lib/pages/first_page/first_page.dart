@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:first_flutter_app/event/myself_event_bus.dart';
+import 'package:first_flutter_app/pages/transition_page/hero_B.dart';
 
 class AnimatedImage extends AnimatedWidget {
   const AnimatedImage({Key key, Animation<double> animation})

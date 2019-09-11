@@ -34,7 +34,5 @@ var thirdPageHandler = new Handler(
 
 var secondPageHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  return SecondPage(
-    userName: 'testParam',
-  );
+  return SecondPage();
 });

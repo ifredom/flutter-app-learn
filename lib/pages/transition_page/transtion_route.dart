@@ -1,7 +1,10 @@
+import 'package:first_flutter_app/pages/first_page/first_page.dart';
 import 'package:first_flutter_app/pages/transition_page/fade.dart';
+import 'package:first_flutter_app/pages/transition_page/hero_A.dart';
 import 'package:first_flutter_app/pages/transition_page/rotation.dart';
 import 'package:first_flutter_app/pages/transition_page/scale.dart';
 import 'package:first_flutter_app/pages/transition_page/size.dart';
+import 'package:first_flutter_app/pages/transition_page/slide_X_page.dart';
 import 'package:first_flutter_app/pages/transition_page/target_page.dart';
 import 'package:first_flutter_app/pages/transition_page/slide_right.dart';
 import 'package:first_flutter_app/pages/transition_page/two_transition.dart';
@@ -65,6 +68,18 @@ class _TranstionRoutePageState extends State<TranstionRoutePage> {
               onPressed: () {
                 Navigator.push(
                     context, TwoTransitionRoute(page: TargetTestTransition()));
+              },
+            ),
+            RaisedButton(
+              child: Text("hero飞跃动画"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                    return HeroAnimationA();
+                    // return FirstPage();
+                  }),
+                );
               },
             ),
           ],

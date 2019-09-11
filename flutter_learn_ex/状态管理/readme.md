@@ -19,10 +19,9 @@ StatefulWidget 的状态应该被谁管理？Widget 本身？父 Widget？都会
 ## 几种`路由`管理方式
 
 核心思想：`一个轻量的路由管理本质上是页面标识（或页面路径）与页面实例的映射。`
+路由分为两种：命名路由 和 构造路由
 
--直接在 MaterialApp.routes 属性上设置
-
-> 常用路由跳转
+- 1.命名路由。在 MaterialApp.routes 属性上设置，使用时直接跳转到路由命名即可。缺点是无法传参
 
 ```dart
 new MaterialApp(
@@ -49,9 +48,7 @@ Navigator.of(context).pushNamedAndRemoveUntil(
 
 - **这里很容易会出现一个报错，找不到 route，是因为 MaterialApp 中的 child 必须要重建 context，使用 builder 包裹一下即可**
 
-> 路由传参
-
-- 在需要接收参数的页面进行参数定义，并加入其构造函数中，在跳转到该页面时，使用 MaterialPageRoute 并在页面中传入参数即可。
+- 2.构建路由。在需要接收参数的 widget 提前进行参数定义，并加入其构造函数中，使用时在跳转到该页面时，使用 MaterialPageRoute 构造路由，并传入参数即可。缺点相比命名路由，写起来麻烦很多。
 
 ```dart
 // 跳转并发送参数

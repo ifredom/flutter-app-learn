@@ -1,3 +1,5 @@
+import 'package:first_flutter_app/components/route_transition.dart';
+import 'package:first_flutter_app/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:first_flutter_app/event/myself_event_bus.dart';
 
@@ -24,6 +26,11 @@ class _LoginPageState extends State<LoginPage> {
           // 登录成功后触发登录事件，页面 first_page 中订阅者会被调用
           bus.emit("login", 'ifredom');
           Navigator.of(context).pushNamed('/home');
+
+          // 使用动画效果
+          // Navigator.push(context, FadeRoute(builder: (context) {
+          //   return HomePage();
+          // }));
         },
       ),
     );

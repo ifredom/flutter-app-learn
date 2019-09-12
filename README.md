@@ -24,16 +24,25 @@ A new Flutter application.
 
 alt + click（鼠标左键） 进入该对象查看属性
 alt + left (左箭头) 后退返回的项目页
+ctrl + . 鼠标悬浮于 widget ，可以自动申明变量 widget 到构造函数中
+
+```java
+class SecondPage extends StatefulWidget {
+  final Widget widget; // ctrl + .
+  @override
+  _SecondPageState createState() => _SecondPageState();
+}
+```
 
 vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不够整齐，解决办法是：每一个属性末尾带上一个逗号！
 
-## snippet 快速coding技巧
+## snippet 快速 coding 技巧
 
-输入属性中得驼峰字母可以提高效率。比如我们要写一个属性:  `ListTitle()`,可以输入`lt`,此时会自动给出对应提示,其中就有`ListTitle`。
+输入属性中得驼峰字母可以提高效率。比如我们要写一个属性: `ListTitle()`,可以输入`lt`,此时会自动给出对应提示,其中就有`ListTitle`。
 
 ## 异常报错
 
-> unfortunately  firstapp has stopped
+> unfortunately firstapp has stopped
 
 方式一，无效
 
@@ -43,4 +52,4 @@ vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不�
 
 ```
 
-方式二，使用 `Genymotion`创建设备，并 setting->ADB-> Use custom Android SDK tools。 （设置为你得SDK位置即可）
+方式二，使用 `Genymotion`创建设备，并 setting->ADB-> Use custom Android SDK tools。 （设置为你得 SDK 位置即可）

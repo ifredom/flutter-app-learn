@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/utils/fonts.dart';
 
 class IfredomTextField extends StatefulWidget {
   @override
@@ -82,7 +81,6 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
       RaisedButton(
         child: Text('alertDialog'),
         onPressed: () {
-          print(new Point().y);
           showDialog(
             context: context,
             builder: (context) => AlertDialog(

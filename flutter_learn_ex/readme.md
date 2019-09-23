@@ -73,6 +73,10 @@ Dart 语言对大部分开发者而言是很陌生的一种语言。google 为�
 `Widget` 只是一个配置，`RenderObject` 负责管理布局、绘制等操作。
 而 `Element` 负责链接他们两个。
 
+## 性能优化
+
+[PageView 缓存页面装状态](https://zhuanlan.zhihu.com/p/58582876)
+
 ## 教学视频
 
 What is Flutter? => https://www.youtube.com/watch?v=GLSG_Wh_YWc&t=0h0m13s

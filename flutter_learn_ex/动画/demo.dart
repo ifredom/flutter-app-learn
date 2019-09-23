@@ -26,7 +26,7 @@ class AnimatedImage extends AnimatedWidget {
 }
 
 class FirstPage extends StatefulWidget {
-  FirstPage({Key key}) : super(key: key);
+  FirstPage({Key key}) : key: key);
 
   _FirstPageState createState() => _FirstPageState();
 }

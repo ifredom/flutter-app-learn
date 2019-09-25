@@ -19,7 +19,7 @@ class _Page1State extends State<Page1> {
         child: Text('下一页'),
         onPressed: () {
           Navigator.of(context).push(new MaterialPageRoute(
-              builder: (_) => Page2(id: 2), maintainState: true));
+              builder: (_) => Page2(), maintainState: true));
         },
       ),
     );

@@ -1,5 +1,5 @@
+import 'package:first_flutter_app/pages/page1.dart';
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class MyApp extends StatefulWidget {
@@ -34,27 +34,28 @@ class _MyAppState extends State<MyApp> {
   }
 
   showWelcomePage() {
-    Future.delayed(Duration(milliseconds: 3000)).then((e) {
-      setState(() {
-        _isLoading = false;
-      });
-    });
+    return Page1();
+    //   Future.delayed(Duration(milliseconds: 3000)).then((e) {
+    //     setState(() {
+    //       _isLoading = false;
+    //     });
+    //   });
 
-    if (_isLoading) {
-      return Container(
-        color: Color(this.themeColor),
-        child: Center(
-          child: SpinKitPouringHourglass(color: Colors.white),
-        ),
-      );
-    } else {
-      // 判断是否已经登录
-      if (_hasLogin) {
-        return Text("123");
-      } else {
-        return Text("DAFSAF");
-      }
-    }
+    //   if (_isLoading) {
+    //     return Container(
+    //       color: Color(this.themeColor),
+    //       child: Center(
+    //         child: SpinKitPouringHourglass(color: Colors.white),
+    //       ),
+    //     );
+    //   } else {
+    //     // 判断是否已经登录
+    //     if (_hasLogin) {
+    //       return Text("has login,this is login after page");
+    //     } else {
+    //       return Page1();
+    //     }
+    //   }
   }
 }
 

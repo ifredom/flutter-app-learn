@@ -1,6 +1,3 @@
-import 'package:first_flutter_app/api/model/error_model.dart';
-import 'package:first_flutter_app/event/event_bus.dart';
-
 /// 错误编码
 class Code {
   /// 网络错误

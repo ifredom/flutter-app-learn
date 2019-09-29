@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/utils/color_hex.dart';
 
 class IfredomWidget extends StatelessWidget {
   const IfredomWidget({
@@ -31,8 +30,8 @@ class IfredomWidget extends StatelessWidget {
         ),
         FlatButton(
           color: Colors.blue[700],
-          highlightColor: ColorUtils.hexToColor('#333333'),
-          colorBrightness:Brightness.dark,
+          highlightColor: Colors.black87,
+          colorBrightness: Brightness.dark,
           splashColor: Colors.grey,
           child: Text('flatbutton'),
           onPressed: () {
@@ -40,7 +39,8 @@ class IfredomWidget extends StatelessWidget {
           },
         ),
         OutlineButton(
-          shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           child: Text('flatbutton'),
           onPressed: () {
             print('flatbutton');
@@ -49,5 +49,4 @@ class IfredomWidget extends StatelessWidget {
       ],
     );
   }
-
 }

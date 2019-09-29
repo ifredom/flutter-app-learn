@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/utils/color_hex.dart';
 
 class IfredomWidget extends StatelessWidget {
   const IfredomWidget({

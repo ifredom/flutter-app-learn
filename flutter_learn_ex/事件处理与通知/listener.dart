@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/pages/otherOne.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -18,11 +17,11 @@ class _HomePageState extends State<HomePage> {
         RaisedButton(
           child: Text('raiseButton'),
           onPressed: () {
-            String userName = "John Doe";
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return new PageOtherOne(userName: userName);
-                // return new Text("123");
+                return Container(
+                  child: Text('123'),
+                );
               },
             ));
           },

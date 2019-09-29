@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:first_flutter_app/event/myself_event_bus.dart';
 
 class AnimatedImage extends AnimatedWidget {
   const AnimatedImage({Key key, Animation<double> animation})
@@ -26,7 +25,7 @@ class AnimatedImage extends AnimatedWidget {
 }
 
 class FirstPage extends StatefulWidget {
-  FirstPage({Key key}) : key: key);
+  FirstPage({Key key});
 
   _FirstPageState createState() => _FirstPageState();
 }

@@ -17,6 +17,7 @@ A new Flutter application.
 ## debug
 
 - 按下 R 刷新
+- 按下 shirt + R 强制部署
 - 按下 P 出现网格
 - 按下 O 切换 android 和 ios 视图
 
@@ -39,6 +40,10 @@ vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不�
 ## snippet 快速 coding 技巧
 
 输入属性中得驼峰字母可以提高效率。比如我们要写一个属性: `ListTitle()`,可以输入`lt`,此时会自动给出对应提示,其中就有`ListTitle`。
+
+## 屏幕适配方案
+
+ScreenUtil + SizeBox
 
 ## 异常报错
 

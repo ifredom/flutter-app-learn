@@ -26,10 +26,10 @@ dependencies:
   # 本地存储、收藏功能
   shared_preferences: "^0.5.3"
   path_provider: "^1.3.0"
-  web_socket_channel: "^1.0.15"
+  # 状态管理
+  provider: "^3.1.0"
 
 dev_dependencies:
-  json_model: "^0.0.2"
   flutter_test:
     sdk: flutter
 

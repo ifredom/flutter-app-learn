@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/pages/peekoutDialog.dart';
 import 'package:flutter/material.dart';
 
 import 'page2.dart';
@@ -12,16 +13,34 @@ class _Page1State extends State<Page1> {
   Widget build(BuildContext context) {
     print('page1 build');
     return Scaffold(
-      appBar: AppBar(
-        title: Text('page1'),
-      ),
-      body: RaisedButton(
-        child: Text('下一页'),
-        onPressed: () {
-          Navigator.of(context).push(new MaterialPageRoute(
-              builder: (_) => Page2(), maintainState: true));
-        },
-      ),
-    );
+        // color: Colors.pink,
+        // type: MaterialType.transparency,
+        body: Column(
+      children: <Widget>[
+        RaisedButton(
+          child: Text('点击进入下一页'),
+          onPressed: () {
+            _showDailog();
+            // Navigator.of(context).push(new MaterialPageRoute(
+            //     builder: (_) => Page2(), maintainState: true));
+          },
+        ),
+        FloatingActionButton(
+          child: Text('测试 Material组件上得MaterialType.transparency属性'),
+          onPressed: () {},
+        )
+      ],
+    ));
+  }
+
+  _showDailog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return CustomDialog(
+              title: "Success",
+              description:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        });
   }
 }

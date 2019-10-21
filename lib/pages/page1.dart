@@ -21,8 +21,8 @@ class _Page1State extends State<Page1> {
           child: Text('点击进入下一页'),
           onPressed: () {
             _showDailog();
-            // Navigator.of(context).push(new MaterialPageRoute(
-            //     builder: (_) => Page2(), maintainState: true));
+            Navigator.of(context).push(new MaterialPageRoute(
+                builder: (_) => Page2(), maintainState: true));
           },
         ),
         FloatingActionButton(

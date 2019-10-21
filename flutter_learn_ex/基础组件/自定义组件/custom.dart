@@ -71,3 +71,12 @@ class MyPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
 }
+
+
+///自定义一个圆形进度
+// final Widget pageChild = Builder(builder: (builder) {
+//   return SpinKitRotatingCircle(
+//     color: Colors.white,
+//     size: 50.0,
+//   );
+// });

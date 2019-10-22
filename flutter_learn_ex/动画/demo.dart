@@ -39,11 +39,6 @@ class _FirstPageState extends State<FirstPage>
   void initState() {
     super.initState();
 
-    // 测试事件总线
-    bus.on("login", (arg) {
-      print('监听到登录事件');
-    });
-
     controller = new AnimationController(
       duration: const Duration(seconds: 3),
       vsync: this,

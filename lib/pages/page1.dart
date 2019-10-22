@@ -20,7 +20,6 @@ class _Page1State extends State<Page1> {
         RaisedButton(
           child: Text('点击进入下一页'),
           onPressed: () {
-            _showDailog();
             Navigator.of(context).push(new MaterialPageRoute(
                 builder: (_) => Page2(), maintainState: true));
           },
@@ -31,16 +30,5 @@ class _Page1State extends State<Page1> {
         )
       ],
     ));
-  }
-
-  _showDailog() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return CustomDialog(
-              title: "Success",
-              description:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        });
   }
 }

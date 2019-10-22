@@ -22,21 +22,9 @@ class SliverDemo extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            // title: Text('ifredom'),
+            title: Text('ifredom'),
             // pinned: true, // 固定头部
             floating: true, // 头部跟随动作，向下滑时出现头部，向上时隐藏头部
-            expandedHeight: 178.0,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                'ifredom flutter'.toUpperCase(),
-                style: TextStyle(fontSize: 15.0, letterSpacing: 3.0),
-                textAlign: TextAlign.center,
-              ),
-              background: Image.network(
-                images[0],
-                fit: BoxFit.cover,
-              ),
-            ),
           ),
           SliverSafeArea(
             sliver: SliverPadding(

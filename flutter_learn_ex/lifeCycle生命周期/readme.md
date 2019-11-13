@@ -3,6 +3,9 @@
 flutter生命周期与前端中的vue，react非常相似。
 整体的过程就是讲述：widget数据的变化与最终view视图的关系。如图（生命周期.jpg）所示
 
+生命周期隐藏值：
+[mounted](https://flutterbyexample.com/stateful-widget-lifecycle/)
+
 ## 生命周期之 initState()
 
 当Widget第一次插入到Widget树时会被调用，对于每一个State对象，Flutter framework只会调用一次该回调，所以，通常在该回调中做一些一次性的操作，如状态初始化、订阅子树的事件通知等。不能在该回调中调用BuildContext.inheritFromWidgetOfExactType（该方法用于在Widget树上获取离当前widget最近的一个父级InheritFromWidget，关于InheritedWidget我们将在后面章节介绍），原因是在初始化完成后，Widget树中的InheritFromWidget也可能会发生变化，所以正确的做法应该在在build（）方法或didChangeDependencies()中调用它。

@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/tools/myself_event_bus.dart';
 import 'package:flutter/material.dart';
 
 import 'page3.dart';
@@ -21,32 +22,13 @@ class _Page2State extends State<Page2> {
       body: RaisedButton(
         child: Text('下一页'),
         onPressed: () {
-          Navigator.of(context).push(new MaterialPageRoute(
-              builder: (_) => new Page3(), maintainState: true));
+          bus.emit("login", "userInfo");
+
+          Navigator.of(context).pop();
+          // Navigator.of(context).push(new MaterialPageRoute(
+          //     builder: (_) => new Page3(), maintainState: true));
         },
       ),
     );
   }
 }
-
-// class Page2 extends StatelessWidget {
-//   final num id;
-//   Page2({Key key, this.id}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     print('page2 build');
-//     return Scaffold(
-//       appBar: AppBar(
-//         // title: Text('纯静态，无数据传递'),
-//         title: Text('$id'),
-//       ),
-//       body: RaisedButton(
-//         child: Text('下一页'),
-//         onPressed: () {
-//           Navigator.of(context).push(new MaterialPageRoute(
-//               builder: (_) => new Page3(id: 2), maintainState: true));
-//         },
-//       ),
-//     );
-//   }
-// }

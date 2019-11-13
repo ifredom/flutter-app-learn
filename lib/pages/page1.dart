@@ -1,6 +1,6 @@
 import 'package:first_flutter_app/pages/peekoutDialog.dart';
 import 'package:flutter/material.dart';
-
+import '../tools/myself_event_bus.dart';
 import 'page2.dart';
 
 class Page1 extends StatefulWidget {
@@ -9,6 +9,14 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
+  @override
+  void initState() {
+    super.initState();
+    bus.on("login", (arg) {
+      print('监听到事件');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     print('page1 build');

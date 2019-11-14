@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:first_flutter_app/pages/nativePlugin.dart';
 import 'package:first_flutter_app/tools/myself_event_bus.dart';
 import 'package:flutter/material.dart';
 
@@ -58,8 +59,11 @@ class _Page2State extends State<Page2> {
         onPressed: () {
           bus.emit("login", "userInfo");
           // Navigator.of(context).pop();
+          // Navigator.of(context).push(new MaterialPageRoute(
+          //     builder: (_) => new Page3(), maintainState: true));
+
           Navigator.of(context).push(new MaterialPageRoute(
-              builder: (_) => new Page3(), maintainState: true));
+              builder: (_) => new NativePluginDemo(), maintainState: true));
         },
       ),
     );

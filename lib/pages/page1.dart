@@ -12,6 +12,7 @@ class _Page1State extends State<Page1> {
   @override
   void initState() {
     super.initState();
+
     bus.on("login", (arg) {
       print('监听到事件');
     });

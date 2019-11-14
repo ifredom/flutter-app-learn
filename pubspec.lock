@@ -189,7 +189,7 @@ packages:
       name: firebase_analytics
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0+1"
+    version: "5.0.6"
   fixnum:
     dependency: transitive
     description:
@@ -228,13 +228,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_webview_plugin:
-    dependency: "direct main"
-    description:
-      name: flutter_webview_plugin
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.8"
   front_end:
     dependency: transitive
     description:
@@ -585,4 +578,4 @@ packages:
     version: "2.2.0"
 sdks:
   dart: ">2.4.0 <3.0.0"
-  flutter: ">=1.6.7 <2.0.0"
+  flutter: ">=1.9.1+hotfix.4 <2.0.0"

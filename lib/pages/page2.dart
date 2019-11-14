@@ -11,6 +11,21 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
+  _checkInitStateContext(_) async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Text('123');
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback(_checkInitStateContext);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     print('page2 build');
@@ -23,10 +38,9 @@ class _Page2State extends State<Page2> {
         child: Text('下一页'),
         onPressed: () {
           bus.emit("login", "userInfo");
-
-          Navigator.of(context).pop();
-          // Navigator.of(context).push(new MaterialPageRoute(
-          //     builder: (_) => new Page3(), maintainState: true));
+          // Navigator.of(context).pop();
+          Navigator.of(context).push(new MaterialPageRoute(
+              builder: (_) => new Page3(), maintainState: true));
         },
       ),
     );

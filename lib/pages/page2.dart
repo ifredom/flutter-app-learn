@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:first_flutter_app/tools/myself_event_bus.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,14 @@ class Page2 extends StatefulWidget {
 }
 
 class _Page2State extends State<Page2> {
-  _checkInitStateContext(_) async {
+  _countdown(_) {
+    Timer timer = new Timer(new Duration(seconds: 3), () {
+      print("只在倒计时结束时回调");
+      _checkInitStateContext();
+    });
+  }
+
+  _checkInitStateContext() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -22,7 +31,7 @@ class _Page2State extends State<Page2> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback(_checkInitStateContext);
+    WidgetsBinding.instance.addPostFrameCallback(_countdown);
     super.initState();
   }
 

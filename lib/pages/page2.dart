@@ -29,9 +29,19 @@ class _Page2State extends State<Page2> {
     );
   }
 
+  _diffDate() {
+    final birthday = DateTime(2019, 11, 13);
+    final date2 = DateTime.now();
+    final differenceDay = date2.difference(birthday).inDays;
+    final differenceinHours = date2.difference(birthday).inHours;
+    print(differenceDay);
+    print(differenceinHours);
+  }
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(_countdown);
+    _diffDate();
     super.initState();
   }
 

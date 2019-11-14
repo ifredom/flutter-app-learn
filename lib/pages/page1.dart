@@ -27,6 +27,29 @@ class _Page1State extends State<Page1> {
       child: Scaffold(
         body: Column(
           children: <Widget>[
+            SizedBox(
+              height: 100.0,
+              child: Stack(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.elliptical(150.0, 50.0),
+                              bottomRight: Radius.elliptical(150.0, 50.0))),
+                    ),
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "My app title!",
+                        style: TextStyle(color: Colors.white, fontSize: 25.0),
+                      ))
+                ],
+              ),
+            ),
             RaisedButton(
               child: Text('点击进入下一页'),
               onPressed: () {

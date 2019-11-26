@@ -29,33 +29,10 @@ class _MyAppState extends State<MyApp> {
             size: 35.0,
           ),
         ),
-        home: new Scaffold(body: showWelcomePage()),
+        home: new Scaffold(
+          body: Page1(),
+        ),
         debugShowCheckedModeBanner: false);
-  }
-
-  showWelcomePage() {
-    return Page1();
-    //   Future.delayed(Duration(milliseconds: 3000)).then((e) {
-    //     setState(() {
-    //       _isLoading = false;
-    //     });
-    //   });
-
-    //   if (_isLoading) {
-    //     return Container(
-    //       color: Color(this.themeColor),
-    //       child: Center(
-    //         child: SpinKitPouringHourglass(color: Colors.white),
-    //       ),
-    //     );
-    //   } else {
-    //     // 判断是否已经登录
-    //     if (_hasLogin) {
-    //       return Text("has login,this is login after page");
-    //     } else {
-    //       return Page1();
-    //     }
-    //   }
   }
 }
 

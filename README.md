@@ -58,3 +58,17 @@ ScreenUtil + SizeBox
 ```
 
 方式二，使用 `Genymotion`创建设备，并 setting->ADB-> Use custom Android SDK tools。 （设置为你得 SDK 位置即可）
+
+
+###  flutter for web
+
+[flutter-for-web docs](https://flutter.dev/docs/get-started/web)
+
+```dash
+ flutter channel dev
+ flutter upgrade
+ flutter config --enable-web
+ cd <into project directory>
+ flutter create .
+ flutter run -d chrome
+ ```

@@ -1,7 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+// 调用方式：首先在mainActivity.java写好原生代码，然后push当当前widget即可
 
 class NativePluginDemo extends StatefulWidget {
   @override
@@ -16,17 +17,22 @@ class _NativePluginDemoState extends State<NativePluginDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            new RaisedButton(
-              child: new Text('Get Battery Level'),
-              onPressed: _getBatteryLevel,
-            ),
-            new Text(_batteryLevel),
-          ],
+    return Scaffold(
+      body: Container(
+        child: new Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              new RaisedButton(
+                child: new Text('Get Battery Level'),
+                onPressed: _getBatteryLevel,
+              ),
+              new Text(
+                _batteryLevel,
+                style: TextStyle(color: Colors.black38),
+              ),
+            ],
+          ),
         ),
       ),
     );

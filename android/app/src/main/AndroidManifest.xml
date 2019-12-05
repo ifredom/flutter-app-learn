@@ -5,9 +5,27 @@
     <!-- 手机开机后如果没有任何操作可能就会锁屏并进入休眠状态 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 访问网络，进行地图相关业务数据请求，包括地图数据，路线规划，POI检索等 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 读取系统信息，包含系统版本等信息，用作统计-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- 程序在手机屏幕关闭后后台进程仍然运行-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 
-    <application android:name="io.flutter.app.FlutterApplication" android:label="first_flutter_app" android:icon="@mipmap/ic_launcher">
+    <application android:name=".MainApplication" android:label="first_flutter_app" android:icon="@mipmap/ic_launcher">
         <activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
             <meta-data android:name="io.flutter.app.android.SplashScreenUntilFirstFrame" android:value="true" />
             <intent-filter>
@@ -15,6 +33,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 百度地图 Key配置 -->
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="5l5vV3CAr0Qj7yawCnT9rxjhXQsaCdrk" />
+        <!-- 百度地图 间隔定位必须配置此service否则功能无效-->
+        <service android:name="com.baidu.location.f"
+                android:enabled="true"
+                android:process=":remote"/>
+
         <receiver android:name=".BootBroadcastReceiver">
             <!--注册开机广播地址-->
             <intent-filter>
@@ -24,11 +50,11 @@
             <!--URL Scheme启动-->
             <intent-filter>
                 <!--必有项-->
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
                 <!--如果希望该应用可以通过浏览器的连接启动，则添加该项-->
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.BROWSABLE" />
                 <!--表示该页面可以被隐式调用，必须加上该项-->
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -37,4 +63,5 @@
             </intent-filter>
         </receiver>
     </application>
+
 </manifest>

@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:first_flutter_app/pages/home.dart';
 import 'package:first_flutter_app/pages/peekoutDialog.dart';
 import 'package:flutter/material.dart';
+import './flutter_baidu_map.dart';
 import '../tools/myself_event_bus.dart';
 import 'page2.dart';
 
@@ -13,11 +15,22 @@ class Page1 extends StatefulWidget {
 class _Page1State extends State<Page1> {
   @override
   void initState() {
-    super.initState();
+    initBaidu();
 
     bus.on("login", (arg) {
       print('监听到事件');
     });
+
+    super.initState();
+  }
+
+  void initBaidu() async {
+    bool result = await FlutterBaiduMap.init();
+    if (result) {
+      print("百度地图加载成功...");
+    } else {
+      print("百度地图加载失败...");
+    }
   }
 
   @override
@@ -60,6 +73,13 @@ class _Page1State extends State<Page1> {
             FloatingActionButton(
               child: Text('测试 Material组件上得MaterialType.transparency属性'),
               onPressed: () {},
+            ),
+            FloatingActionButton(
+              child: Text('进入地图'),
+              onPressed: () {
+                Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (_) => HomePage(), maintainState: true));
+              },
             )
           ],
         ),

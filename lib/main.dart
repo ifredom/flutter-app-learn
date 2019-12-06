@@ -9,8 +9,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int themeColor = 0xFFC91B3A;
-  bool _hasLogin = false;
-  bool _isLoading = true;
 
   @override
   Widget build(BuildContext context) {

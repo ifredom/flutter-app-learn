@@ -46,3 +46,11 @@ class Sun extends StatelessWidget {
             : futureBuild(appState));
   }
 }
+
+class PostDB {
+  static void getPosts() {
+    print("object");
+  }
+}
+
+class MySchedule {}

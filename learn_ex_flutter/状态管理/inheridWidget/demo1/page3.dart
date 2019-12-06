@@ -1,5 +1,6 @@
-import 'package:first_flutter_app/pages/counter.dart';
 import 'package:flutter/material.dart';
+
+import './counter.dart';
 
 class Page3 extends StatefulWidget {
   @override

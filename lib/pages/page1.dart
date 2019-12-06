@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:first_flutter_app/pages/home.dart';
-import 'package:first_flutter_app/pages/peekoutDialog.dart';
 import 'package:flutter/material.dart';
-import './flutter_baidu_map.dart';
+import './flutterplugin/flutter_baidu_map.dart';
 import '../tools/myself_event_bus.dart';
 import 'page2.dart';
 
@@ -74,13 +73,13 @@ class _Page1State extends State<Page1> {
               child: Text('测试 Material组件上得MaterialType.transparency属性'),
               onPressed: () {},
             ),
-            FloatingActionButton(
+            RaisedButton(
               child: Text('进入地图'),
               onPressed: () {
                 Navigator.of(context).push(new MaterialPageRoute(
                     builder: (_) => HomePage(), maintainState: true));
               },
-            )
+            ),
           ],
         ),
       ),

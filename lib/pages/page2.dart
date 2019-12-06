@@ -52,17 +52,17 @@ class _Page2State extends State<Page2> {
         title: Text('纯静态，无数据传递'),
         // title: Text('${widget.id}'),
       ),
-      body: RaisedButton(
-        child: Text('下一页'),
-        onPressed: () {
-          bus.emit("login", "userInfo");
-          // Navigator.of(context).pop();
-          // Navigator.of(context).push(new MaterialPageRoute(
-          //     builder: (_) => new Page3(), maintainState: true));
+      body: Container(
+        child: RaisedButton(
+          child: Text('下一页'),
+          onPressed: () {
+            bus.emit("login", "userInfo");
+            // Navigator.of(context).pop();
 
-          Navigator.of(context).push(new MaterialPageRoute(
-              builder: (_) => new Page3(), maintainState: true));
-        },
+            Navigator.of(context).push(new MaterialPageRoute(
+                builder: (_) => new Page3(), maintainState: true));
+          },
+        ),
       ),
     );
   }

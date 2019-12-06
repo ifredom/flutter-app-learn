@@ -9,6 +9,8 @@ import io.flutter.plugin.common.MessageCodec;
 import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 
+
+// https://juejin.im/post/5bed04d96fb9a049a42e9c40
 public class BMapViewFactory extends PlatformViewFactory {
     private MapView mapView;
 
@@ -27,7 +29,7 @@ public class BMapViewFactory extends PlatformViewFactory {
 
             @Override
             public void dispose() {
-
+                mapView.onResume();
             }
         };
     }

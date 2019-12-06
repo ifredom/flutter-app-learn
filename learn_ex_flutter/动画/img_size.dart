@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../example/event/myself_event_bus.dart';
 
 class AnimatedImage extends AnimatedWidget {
   const AnimatedImage({Key key, Animation<double> animation})
@@ -39,11 +38,6 @@ class _FirstPageState extends State<FirstPage>
   @override
   void initState() {
     super.initState();
-
-    // 测试事件总线
-    bus.on("login", (arg) {
-      print('监听到登录事件');
-    });
 
     controller = new AnimationController(
       duration: const Duration(seconds: 3),

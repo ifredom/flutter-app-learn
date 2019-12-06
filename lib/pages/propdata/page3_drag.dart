@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Page3 extends StatefulWidget {
+class Page3Drag extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _Page3State();
+    return _Page3DragState();
   }
 }
 
-class _Page3State extends State<Page3> {
-  ///这个是个啥？？？
+class _Page3DragState extends State<Page3Drag> {
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
   @override

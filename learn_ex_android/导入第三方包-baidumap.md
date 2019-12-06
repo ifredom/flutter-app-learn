@@ -2,6 +2,13 @@
 
 报错
 
+## 查看app的SHA1
+
+sha1值由签名文件决定，
+keytool -list -v -keystore ifredom.keystore
+默认的debug签名文件位于：
+C:\Users\myusername \.android
+
 ## ndk 配置
 
 1. 系统环境变量 path 设置为：
@@ -77,5 +84,4 @@ dependencies {
 
 - 包名: `AndroidManifest.xml`的`package`属性定义
 
-
-applacation name : io.flutter.app.FlutterApplication
+修改了`AndroidManifest.xml`文件中的applacation name : 原值为:`io.flutter.app.FlutterApplication`

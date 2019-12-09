@@ -50,6 +50,7 @@ class _Page2State extends State<Page2> {
     return Scaffold(
       appBar: AppBar(
         title: Text('纯静态，无数据传递'),
+        // HitTestBehavior
         // title: Text('${widget.id}'),
       ),
       body: Container(
@@ -60,7 +61,7 @@ class _Page2State extends State<Page2> {
             // Navigator.of(context).pop();
 
             Navigator.of(context).push(new MaterialPageRoute(
-                builder: (_) => new Page3(), maintainState: true));
+                builder: (_) => new Page3(), maintainState: false));
           },
         ),
       ),

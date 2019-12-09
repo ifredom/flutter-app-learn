@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:first_flutter_app/pages/home.dart';
+import 'package:first_flutter_app/pages/peekoutDialog.dart';
 import 'package:flutter/material.dart';
 import './flutterplugin/flutter_baidu_map.dart';
 import '../tools/myself_event_bus.dart';
@@ -62,11 +63,12 @@ class _Page1State extends State<Page1> {
                 ],
               ),
             ),
-            RaisedButton(
-              child: Text('点击进入下一页'),
-              onPressed: () {
+            GestureDetector(
+              child: Text("进入下一页"),
+              onTap: () {
+                // HitTestBehavior
                 Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (_) => Page2(), maintainState: true));
+                    builder: (_) => Page2(), maintainState: false));
               },
             ),
             FloatingActionButton(
@@ -76,13 +78,61 @@ class _Page1State extends State<Page1> {
             RaisedButton(
               child: Text('进入地图'),
               onPressed: () {
-                Navigator.of(context).push(new MaterialPageRoute(
-                    builder: (_) => HomePage(), maintainState: true));
+                Navigator.of(context).push(
+                  new MaterialPageRoute(
+                      builder: (_) => HomePage(), maintainState: false),
+                );
+              },
+            ),
+            RaisedButton(
+              child: Text('进入popup'),
+              onPressed: () {
+                // _askedToLead();
+
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (_) => SamplePage(), maintainState: true),
+                );
+
+                // Navigator.of(context).push(
+                //    _DialogRoute<T>(
+                //     pageBuilder: pageBuilder,
+                //     barrierDismissible: barrierDismissible,
+                //     barrierLabel: barrierLabel,
+                //     barrierColor: barrierColor,
+                //     transitionDuration: transitionDuration,
+                //     transitionBuilder: transitionBuilder,
+                //   )
+                // );
+
+                // fullscreenDialog
               },
             ),
           ],
         ),
       ),
     );
+  }
+}
+
+class MePopUpRoute extends PopupRoute {
+  @override
+  bool get barrierDismissible => false;
+
+  @override
+  Color get barrierColor => Colors.green;
+
+  @override
+  String get barrierLabel => "modalBarrierDismissLabel";
+  // String get barrierLabel => MaterialLocalizations.of(context).modalBarrierDismissLabel;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 0);
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return Container();
   }
 }

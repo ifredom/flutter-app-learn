@@ -2,6 +2,8 @@
 
 > 如何查阅官方API，以及学会使用他们？
 
+使用的过程中，我找到了一个vs插件: [Comment Translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate),用于翻译英文为api,努力阅读英文，遇到陌生词汇时去看中文最佳。
+
 例如，对于 route路由  如何才能通过查询[route-api](https://api.flutter.dev/flutter/widgets/Route-class.html)，学会使用它
 
 

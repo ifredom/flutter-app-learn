@@ -2,6 +2,20 @@
 
 https://juejin.im/post/5c8db8e8f265da2d864b889f
 
+## 基本路由
+
+```java
+
+Navigator.of(context).push(
+  Buidler
+);
+
+Navigator.of(context).push(
+   new MaterialPageRoute(
+  builder: (_) => new Page3(), maintainState: false)
+);
+```
+
 ## 动态监听路由
 
 ```java

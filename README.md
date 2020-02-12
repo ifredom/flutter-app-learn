@@ -6,6 +6,8 @@ A new Flutter application.
 
 ## 开发必知
 
+下载缓慢： https://juejin.im/post/5d8d5a105188256ec311fa99#heading-41
+
 ```bash
   # 运行.项目根目录下
   > flutter run
@@ -13,6 +15,10 @@ A new Flutter application.
   > flutter run -d [设备名称]
 
 ```
+
+## flutter pub get无法下载
+
+使用管理员权限启动poweshell， 在项目根目录下执行`flutter pub get`
 
 ## debug
 
@@ -72,3 +78,8 @@ ScreenUtil + SizeBox
  flutter create .
  flutter run -d chrome
  ```
+
+## 创建flutter项目
+
+//如果要指定语言，比如安卓使用Kotlin，iOS使用Swift
+flutter create -i swift -a kotlin xxapp

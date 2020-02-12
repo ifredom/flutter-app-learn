@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
 ///调用方式有2种
-/// 方式一。 无遮罩
-// Navigator.push(
-//   context,
-//   PageRouteBuilder(
-//     barrierDismissible: true,
-//     opaque: false,
-//     pageBuilder: (_, anim1, anim2) => SamplePage(),
-//   ),
-// );
+/// 方式一。 无遮罩.添加了个动画
+//  Navigator.push(
+//     context,
+//     PageRouteBuilder(
+//       barrierDismissible: true,
+//       opaque: false,
+//       pageBuilder: (_, anim1, anim2) => SlideTransition(
+//         position: Tween<Offset>(
+//                 begin: Offset(0.0, 1.0), end: Offset.zero)
+//             .animate(anim1),
+//         child: SamplePage(),
+//       ),
+//     ),
+//   );
 /// 方式二。有遮罩，超出弹窗部分隐藏
 // Navigator.push(
 //   context,

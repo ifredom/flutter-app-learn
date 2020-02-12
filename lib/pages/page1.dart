@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:first_flutter_app/pages/home.dart';
 import 'package:first_flutter_app/pages/peekoutDialog.dart';
+import 'package:first_flutter_app/pages/togglevisiable/togglevisiable.dart'
+    as prefix0;
+import 'package:first_flutter_app/pages/togglevisiable/togglevisiable.dart';
 import 'package:flutter/material.dart';
 import './flutterplugin/flutter_baidu_map.dart';
 import '../tools/myself_event_bus.dart';
@@ -13,6 +16,7 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
+  VisibilityState visibilityState = VisibilityState.invisible;
   @override
   void initState() {
     initBaidu();
@@ -91,8 +95,16 @@ class _Page1State extends State<Page1> {
 
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (_) => SamplePage(), maintainState: true),
+                  PageRouteBuilder(
+                    barrierDismissible: true,
+                    opaque: false,
+                    pageBuilder: (_, anim1, anim2) => SlideTransition(
+                      position: Tween<Offset>(
+                              begin: Offset(0.0, 1.0), end: Offset.zero)
+                          .animate(anim1),
+                      child: SamplePage(),
+                    ),
+                  ),
                 );
 
                 // Navigator.of(context).push(
@@ -109,6 +121,25 @@ class _Page1State extends State<Page1> {
                 // fullscreenDialog
               },
             ),
+            RaisedButton(
+              child: Text('测试隐藏功能,点击'),
+              onPressed: () {
+                setState(() {
+                  if (visibilityState == prefix0.VisibilityState.visible) {
+                    visibilityState = prefix0.VisibilityState.invisible;
+                  } else {
+                    visibilityState = prefix0.VisibilityState.visible;
+                  }
+                });
+              },
+            ),
+            Visibiliable(
+              child: RaisedButton(
+                child: Text('测试隐藏功能,隐藏消失'),
+                onPressed: () {},
+              ),
+              visibility: visibilityState,
+            )
           ],
         ),
       ),
@@ -116,6 +147,7 @@ class _Page1State extends State<Page1> {
   }
 }
 
+/// 通过学习使用Popup深入学习如何使用api document。未完
 class MePopUpRoute extends PopupRoute {
   @override
   bool get barrierDismissible => false;
@@ -134,5 +166,38 @@ class MePopUpRoute extends PopupRoute {
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     return Container();
+  }
+}
+
+class SamplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: SizedBox(
+        //HERE THE SIZE YOU WANT
+        height: MediaQuery.of(context).size.height / 2,
+        width: MediaQuery.of(context).size.width / 2,
+        //your content
+        child: Stack(children: <Widget>[
+          RaisedButton(
+            onPressed: () {
+              // Navigator.of(context).pop();
+              print("hehe");
+            },
+            child: Text("Hello world"),
+          ),
+          Align(
+            alignment: Alignment(1.4, -1.4),
+            child: GestureDetector(
+              child: Text('close'),
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                print("object");
+              },
+            ),
+          )
+        ]),
+      ),
+    );
   }
 }

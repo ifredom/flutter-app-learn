@@ -139,7 +139,7 @@ class _Page1State extends State<Page1> {
                 onPressed: () {},
               ),
               visibility: visibilityState,
-            )
+            ),
           ],
         ),
       ),

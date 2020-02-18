@@ -65,8 +65,7 @@ ScreenUtil + SizeBox
 
 方式二，使用 `Genymotion`创建设备，并 setting->ADB-> Use custom Android SDK tools。 （设置为你得 SDK 位置即可）
 
-
-###  flutter for web
+### flutter for web
 
 [flutter-for-web docs](https://flutter.dev/docs/get-started/web)
 
@@ -81,5 +80,7 @@ ScreenUtil + SizeBox
 
 ## 创建flutter项目
 
-//如果要指定语言，比如安卓使用Kotlin，iOS使用Swift
-flutter create -i swift -a kotlin xxapp
+注意： 不同版本下的flutter，创建出来的项目是有区别的。flutter 1.12进行了大量的不兼容性更新
+
+//如果要指定语言，比如安卓使用java，iOS使用Swift
+flutter create -i swift -a java xxapp

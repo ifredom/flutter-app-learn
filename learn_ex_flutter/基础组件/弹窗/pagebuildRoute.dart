@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 //  Navigator.push(
 //     context,
 //     PageRouteBuilder(
+// 点击 dialog 外部是否可消失
 //       barrierDismissible: true,
 //       opaque: false,
 //       pageBuilder: (_, anim1, anim2) => SlideTransition(

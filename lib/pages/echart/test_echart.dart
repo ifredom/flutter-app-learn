@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_echarts/my_echarts.dart';
+
+import 'echarts.dart';
+import 'echarts_web_controller.dart';
 
 final Map<String, dynamic> lineOption = {
   "title": {"text": "Echarts line example"},

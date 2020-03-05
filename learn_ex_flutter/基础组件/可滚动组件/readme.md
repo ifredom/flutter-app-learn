@@ -21,17 +21,24 @@ SingleChildScrollView({
 
 ## ListView
 
-```dash
+```java
 ListView({
   ...
-  // 可滚动widget公共参数
-  // 滚动方向 horizontal水平，vertical 垂直
+  // 滚动方向, 默认是垂直方向 vertical
   Axis scrollDirection = Axis.vertical,
-  // 滚动方向 horizontal水平，vertical 垂直
+  // 滚动方向,是否按照阅读方向相反的方向滑动
   bool reverse = false,
   // 控制器
+  // 此属性接收一个ScrollController对象，ScrollController的主要作用是控制滚动位置和监听滚动事件。
+  // 默认情况下，Widget树中会有一个默认的PrimaryScrollController，如果子树中的可滚动组件没有显示的指定controller，并且primary属性值为true时，可滚动组件会使用这个默认的ScrollController。
+  // 这种机制带来的好处是父组件可以控制子树中可滚动的滚动行为，例：scaffold正是使用这种机制在iOS中实现了点击导航回到顶部的功能。
   ScrollController controller,
+  //是否使用widget树中默认的PrimaryScrollController
   bool primary,
+  //此属性接受一个ScrollPhysics类型的对象，它决定可以滚动如何响应用户操作，比如用户滑动完抬起手指后，继续执行动画，或者滑动到边界时，如何显示。
+  //默认情况下，Flutter会根据具体平台分别使用不同的ScrollPhysics对象，对应不同的显示效果，如当滑动到边界时，继续拖动的话，在iOS上会出现弹性效果，
+  //而在Android上会出现微光效果。如果你想在所有平台下使用同一种效果，可以显示指定一个固定的ScrollPhysics。
+  //Flutter SDK包含两个ScrollPhysics的子类。1.ClampingScrollPhysics：Android下微光效果，2.BouncingScrollPhysics：iOS下弹性效果
   ScrollPhysics physics,
   EdgeInsetsGeometry padding,
 

@@ -11,6 +11,7 @@
   _checkInitStateContext(_) async {
     showDialog(
       context: context,
+      barrierDismissible: true, // 点击外区域是否关闭弹窗，可以配合超出弹窗外区域
       builder: (context) {
         return Text('123');
       },

@@ -55,7 +55,11 @@ class ApiInterceptors extends InterceptorsWrapper {
 
   @override
   onRequest(RequestOptions options) async {
+    // 请求参数做加盐处理
     return _generateRequestParams(options);
+
+    // 请求参数不做任何处理
+    // return options;
   }
 
   @override

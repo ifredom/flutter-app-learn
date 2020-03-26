@@ -1,7 +1,8 @@
 // https://github.com/google/flutter.widgets/blob/master/example/scrollable_positioned_list/lib/scrollable_positioned_list_example.dart
 import 'dart:math';
+import 'package:first_flutter_app/pages/googleFlutterWidget/scrollable_positioned_list/src/item_positions_listener.dart';
+import 'package:first_flutter_app/pages/googleFlutterWidget/scrollable_positioned_list/src/scrollable_positioned_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/flutter_widgets.dart';
 
 const numberOfItems = 5001;
 const minItemHeight = 20.0;

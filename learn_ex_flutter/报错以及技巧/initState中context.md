@@ -20,7 +20,13 @@
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback(_checkInitStateContext);
+    WidgetsBinding.instance.addPostFrameCallback((_checkInitStateContext){
+      /// 接口请求
+    });
+
+    // 写法二
+    // Future.delayed(Duration.zero, this.fetchUserInfo);
+
     super.initState();
   }
 ```

@@ -41,40 +41,27 @@ class _Page1State extends State<Page1> {
                 ],
               ),
             ),
-            Column(
-              children: <Widget>[
-                _buildButton(
-                  title: 'Materia组件属性： transparency',
-                  callback: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        // barrierDismissible: true,
-                        maintainState: false,
-                        opaque: false,
-                        pageBuilder: (_, anim1, anim2) => SlideTransition(
-                          position: Tween<Offset>(
-                                  begin: Offset(1.0, 0.0), end: Offset.zero)
-                              .animate(anim1),
-                          child: SamplePage(),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            )
+            RaisedButton(
+              child: Text('Materia组件属性： transparency'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    barrierDismissible: true,
+                    opaque: false,
+                    pageBuilder: (_, anim1, anim2) => SlideTransition(
+                      position: Tween<Offset>(
+                              begin: Offset(1.0, 0.0), end: Offset.zero)
+                          .animate(anim1),
+                      child: SamplePage(),
+                    ),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildButton({String title = '按钮', Function callback}) {
-    return RaisedButton(
-      child: Text(title),
-      onPressed: () {
-        callback();
-      },
     );
   }
 }
@@ -83,20 +70,21 @@ class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      // backgroundColor: Colors.black12,
       content: SizedBox(
-        height: MediaQuery.of(context).size.height / 2,
-        width: MediaQuery.of(context).size.width / 2,
+        // height: MediaQuery.of(context).size.height / 2,
+        // width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[
           RaisedButton(
-            child: Text("关闭"),
             onPressed: () {
               Navigator.of(context).pop();
             },
+            child: Text("Hello world"),
           ),
           Align(
-            alignment: Alignment(1.2, -1.2),
+            alignment: Alignment(1.4, -1.4),
             child: GestureDetector(
-              child: Container(child: Text('X')),
+              child: Container(child: Text('close')),
               behavior: HitTestBehavior.translucent,
               onTap: () {
                 print("object");

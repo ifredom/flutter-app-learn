@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// 参考项目: https://github.com/shichunlei/flutter_provider_demo
+///
+///  根组件初始化    Store.of(context); // 初始化context
 class Store {
   static BuildContext context;
   static of(BuildContext context) {

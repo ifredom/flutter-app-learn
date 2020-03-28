@@ -45,7 +45,7 @@ flutter:
 
   # 应用中适用静态资源:
   assets:
-    - images/image/advator.jpg
+    - assets/images/advator.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

@@ -1,13 +1,4 @@
-import 'dart:async';
-
-import 'package:first_flutter_app/pages/home.dart';
-import 'package:first_flutter_app/pages/peekoutDialog.dart';
-import 'package:first_flutter_app/pages/togglevisiable/togglevisiable.dart'
-    as prefix0;
-import 'package:first_flutter_app/pages/togglevisiable/togglevisiable.dart';
 import 'package:flutter/material.dart';
-import './flutterplugin/flutter_baidu_map.dart';
-import '../tools/myself_event_bus.dart';
 import 'page2.dart';
 
 class Page1 extends StatefulWidget {
@@ -16,25 +7,9 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  VisibilityState visibilityState = VisibilityState.invisible;
   @override
   void initState() {
-    initBaidu();
-
-    bus.on("login", (arg) {
-      print('监听到事件');
-    });
-
     super.initState();
-  }
-
-  void initBaidu() async {
-    bool result = await FlutterBaiduMap.init();
-    if (result) {
-      print("百度地图加载成功...");
-    } else {
-      print("百度地图加载失败...");
-    }
   }
 
   @override
@@ -80,15 +55,6 @@ class _Page1State extends State<Page1> {
               onPressed: () {},
             ),
             RaisedButton(
-              child: Text('进入地图'),
-              onPressed: () {
-                Navigator.of(context).push(
-                  new MaterialPageRoute(
-                      builder: (_) => HomePage(), maintainState: false),
-                );
-              },
-            ),
-            RaisedButton(
               child: Text('进入popup'),
               onPressed: () {
                 // _askedToLead();
@@ -106,39 +72,7 @@ class _Page1State extends State<Page1> {
                     ),
                   ),
                 );
-
-                // Navigator.of(context).push(
-                //    _DialogRoute<T>(
-                //     pageBuilder: pageBuilder,
-                //     barrierDismissible: barrierDismissible,
-                //     barrierLabel: barrierLabel,
-                //     barrierColor: barrierColor,
-                //     transitionDuration: transitionDuration,
-                //     transitionBuilder: transitionBuilder,
-                //   )
-                // );
-
-                // fullscreenDialog
               },
-            ),
-            RaisedButton(
-              child: Text('测试隐藏功能,点击'),
-              onPressed: () {
-                setState(() {
-                  if (visibilityState == prefix0.VisibilityState.visible) {
-                    visibilityState = prefix0.VisibilityState.invisible;
-                  } else {
-                    visibilityState = prefix0.VisibilityState.visible;
-                  }
-                });
-              },
-            ),
-            Visibiliable(
-              child: RaisedButton(
-                child: Text('测试隐藏功能,隐藏消失'),
-                onPressed: () {},
-              ),
-              visibility: visibilityState,
             ),
           ],
         ),

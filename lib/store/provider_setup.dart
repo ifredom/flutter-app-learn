@@ -12,13 +12,16 @@ List<SingleChildWidget> providers = [
   ...uiConsumableProviders
 ];
 
+// 引入不会随意变化的全局model
 List<SingleChildWidget> independentServices = [
   // Provider(create: (_) => ConfigViewModel()),
   // Provider(create: (_) => UserModel()),
 ];
 
+// provider之间有引用顺序， ProxyProvider()
 List<SingleChildWidget> dependentServices = [];
 
+// provider只读模式，不监听数据变化，不更新UI
 List<SingleChildWidget> uiConsumableProviders = [
   // StreamProvider<ConnectivityStatus>(
   //   create: (context) => locator<ConnectivityService>().connectivity$,

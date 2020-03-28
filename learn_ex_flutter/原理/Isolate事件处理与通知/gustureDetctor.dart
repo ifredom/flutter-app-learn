@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../动画/img_size.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -20,8 +19,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (BuildContext context) {
-                return new FirstPage();
-                // return new Text("123");
+                return GestureTestDemoPage();
               },
             ));
           },
@@ -54,5 +52,14 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _operation = text;
     });
+  }
+}
+
+class GestureTestDemoPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text('GestureTestDemoPage'),
+    );
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class BaiduMapTestPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _BaiduMapTestPageState createState() => _BaiduMapTestPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _BaiduMapTestPageState extends State<BaiduMapTestPage> {
   @override
   void initState() {
     super.initState();

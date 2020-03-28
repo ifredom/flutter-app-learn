@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 //         position: Tween<Offset>(
 //                 begin: Offset(0.0, 1.0), end: Offset.zero)
 //             .animate(anim1),
-//         child: SamplePage(),
+//         child: AlertDialogDemoPage(),
 //       ),
 //     ),
 //   );
@@ -20,36 +20,24 @@ import 'package:flutter/material.dart';
 // Navigator.push(
 //   context,
 //   new MaterialPageRoute(
-//       builder: (_) => SamplePage(), maintainState: true),
+//       builder: (_) => AlertDialogDemoPage(), maintainState: true),
 // );
-
-class SamplePage extends StatelessWidget {
+class AlertDialogDemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // alertDialog要设置狂高，必须要直接包裹SizeBox
     return AlertDialog(
+      backgroundColor: Colors.redAccent,
       content: SizedBox(
-        //HERE THE SIZE YOU WANT
-        height: MediaQuery.of(context).size.height / 2,
+        height: MediaQuery.of(context).size.height / 3,
         width: MediaQuery.of(context).size.width / 2,
-        //your content
         child: Stack(children: <Widget>[
           RaisedButton(
+            child: Text("关闭"),
             onPressed: () {
-              // Navigator.of(context).pop();
-              print("hehe");
+              Navigator.of(context).pop();
             },
-            child: Text("Hello world"),
           ),
-          Align(
-            alignment: Alignment(1.4, -1.4),
-            child: GestureDetector(
-              child: Text('close'),
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                print("object");
-              },
-            ),
-          )
         ]),
       ),
     );

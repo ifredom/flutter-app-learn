@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'provider_demo.dart';
 
-class Page1 extends StatefulWidget {
+class ProviderTestPage extends StatefulWidget {
   @override
-  _Page1State createState() => _Page1State();
+  _ProviderTestPageState createState() => _ProviderTestPageState();
 }
 
-class _Page1State extends State<Page1> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class _ProviderTestPageState extends State<ProviderTestPage> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
-    print('page1 build');
+    print("build root");
     return SafeArea(
       child: Scaffold(
         body: Row(
@@ -44,12 +43,15 @@ class _Page1State extends State<Page1> {
             Column(
               children: <Widget>[
                 _buildButton(
-                  title: 'Materia组件属性： transparency',
+                  title: '打开自定义dialog',
                   callback: () {
+                    print("变化");
+
                     Navigator.of(context).push(
                       PageRouteBuilder(
-                        // barrierDismissible: true,
+                        barrierDismissible: true,
                         maintainState: false,
+                        barrierColor: Color.fromRGBO(0, 0, 0, 0.6),
                         opaque: false,
                         pageBuilder: (_, anim1, anim2) => SlideTransition(
                           position: Tween<Offset>(
@@ -61,6 +63,24 @@ class _Page1State extends State<Page1> {
                     );
                   },
                 ),
+                RaisedButton(
+                  child: Text("加"),
+                  onPressed: () {
+                    final store =
+                        Provider.of<ProviderDemoModel>(context, listen: false);
+                    store.add();
+                  },
+                ),
+                RaisedButton(
+                  child: Text("减"),
+                  onPressed: () {
+                    final store =
+                        Provider.of<ProviderDemoModel>(context, listen: false);
+                    store.reduce();
+                  },
+                ),
+                _buildTestPartOne(),
+                _buildTestPartTwo(),
               ],
             )
           ],
@@ -77,14 +97,33 @@ class _Page1State extends State<Page1> {
       },
     );
   }
+
+  Widget _buildTestPartOne() {
+    print("_build TestPartOne");
+    return Consumer(
+      builder: (context, ProviderDemoModel snapshot, child) {
+        return Text(snapshot.price.toString());
+      },
+    );
+  }
+
+  Widget _buildTestPartTwo() {
+    print("_build TestPartTwo");
+    final provderDemoData =
+        Provider.of<ProviderDemoModel>(context, listen: false);
+    print(provderDemoData.price);
+    return Text("_buildTestPartTwo: 这里没有刷新");
+  }
 }
 
 class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // alertDialog要设置狂高，必须要直接包裹SizeBox
     return AlertDialog(
+      backgroundColor: Colors.redAccent,
       content: SizedBox(
-        height: MediaQuery.of(context).size.height / 2,
+        height: MediaQuery.of(context).size.height / 3,
         width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[
           RaisedButton(
@@ -93,16 +132,6 @@ class SamplePage extends StatelessWidget {
               Navigator.of(context).pop();
             },
           ),
-          Align(
-            alignment: Alignment(1.2, -1.2),
-            child: GestureDetector(
-              child: Container(child: Text('X')),
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                print("object");
-              },
-            ),
-          )
         ]),
       ),
     );

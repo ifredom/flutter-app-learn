@@ -1,5 +1,6 @@
 import 'package:first_flutter_app/managers/core_manager.dart';
 import 'package:first_flutter_app/pages/provider_demo.dart';
+import 'package:first_flutter_app/pages/provider2_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:first_flutter_app/pages/room_component.dart';
@@ -7,6 +8,8 @@ import 'package:first_flutter_app/pages/room_component.dart';
 void main() {
   // 初始化 访问二进制文件/初始化插件
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Provider.debugCheckInvalidValueType = null;
 
   // 设置全屏
   // SystemChrome.setEnabledSystemUIOverlays([]);
@@ -27,7 +30,9 @@ class _MyAppState extends State<MyApp> {
           // https://stackoverflow.com/questions/59513301/prevent-tried-to-use-provider-with-a-subtype-of-listenable-stream-flutter-erro
           // Provider<ProviderDemoModel>(create: (_) => ProviderDemoModel()),
           ListenableProvider<ProviderDemoModel>(
-              create: (_) => ProviderDemoModel())
+              create: (_) => ProviderDemoModel()),
+          ListenableProvider<Provider2DemoModel>(
+              create: (_) => Provider2DemoModel()),
         ],
         child: MaterialApp(
           title: 'Flutter App',
@@ -44,7 +49,7 @@ class _MyAppState extends State<MyApp> {
               size: 35.0,
             ),
           ),
-          home: RoomComponent(),
+          home: RootComponent(),
           debugShowCheckedModeBanner: false,
         ),
       ),

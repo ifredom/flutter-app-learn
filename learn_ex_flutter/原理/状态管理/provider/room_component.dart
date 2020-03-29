@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_architecture/provider_widget.dart';
 import 'provider_demo.dart';
 
 class ProviderTestPage extends StatefulWidget {
@@ -113,6 +114,30 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
         Provider.of<ProviderDemoModel>(context, listen: false);
     print(provderDemoData.price);
     return Text("_buildTestPartTwo: 这里没有刷新");
+  }
+}
+
+class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
+  BuildTestPartTwo({
+    Key key,
+  }) : super(key: key, listen: false);
+
+  @override
+  Widget build(BuildContext context, model) {
+    print("_build 第二部分");
+    return Text("_buildTestPartTwo: 这里没有刷新");
+  }
+}
+
+class BuildTestPartThree extends ProviderWidget<ProviderDemoModel> {
+  BuildTestPartThree({
+    Key key,
+  }) : super(key: key, listen: true);
+
+  @override
+  Widget build(BuildContext context, model) {
+    print("_build 第三部分");
+    return Text("BuildTestPartThree: ${model.price}");
   }
 }
 

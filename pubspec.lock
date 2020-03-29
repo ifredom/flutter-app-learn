@@ -473,6 +473,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.4"
+  provider_architecture:
+    dependency: "direct main"
+    description:
+      name: provider_architecture
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.6"
   pub_semver:
     dependency: transitive
     description:

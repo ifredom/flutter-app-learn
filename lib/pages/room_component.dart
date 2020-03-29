@@ -68,6 +68,10 @@ class RootComponent extends StatelessWidget {
                         RaisedButton(
                           child: Text("加"),
                           onPressed: () {
+                            Navigator.of(context).push(MyPopUpRoute(
+                              child: SamplePage(),
+                            ));
+
                             model.add();
                           },
                         ),
@@ -135,6 +139,32 @@ class BuildTestPartOne extends ProviderWidget<ProviderDemoModel> {
   }
 }
 
+class MyPopUpRoute extends PopupRoute {
+  Widget child;
+  MyPopUpRoute({
+    @required this.child,
+  });
+
+  @override
+  Color get barrierColor => null;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  String get barrierLabel => "modalBarrierDismissLabel";
+  // String get barrierLabel => MaterialLocalizations.of(context).modalBarrierDismissLabel;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 300);
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return child;
+  }
+}
+
 class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
   BuildTestPartTwo({
     Key key,
@@ -163,12 +193,18 @@ class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // alertDialog要设置狂高，必须要直接包裹SizeBox
-    return AlertDialog(
-      backgroundColor: Colors.redAccent,
-      content: SizedBox(
+    return Material(
+      // backgroundColor: Colors.redAccent,
+      type: MaterialType.card,
+      child: SizedBox(
         height: MediaQuery.of(context).size.height / 3,
         width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[
+          Positioned(
+            right: -10.0,
+            top: -10.0,
+            child: Text("X"),
+          ),
           RaisedButton(
             child: Text("关闭"),
             onPressed: () {
@@ -177,6 +213,14 @@ class SamplePage extends StatelessWidget {
           ),
         ]),
       ),
+      // actions: <Widget>[
+      //   FlatButton(
+      //     child: Text('close'),
+      //     onPressed: () {
+      //       Navigator.of(context).pop();
+      //     },
+      //   ),
+      // ],
     );
   }
 }

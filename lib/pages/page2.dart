@@ -8,6 +8,9 @@ class Page2Demo extends StatelessWidget {
   Widget build(BuildContext context) {
     print("build Page2页面");
     return Scaffold(
+      appBar: AppBar(
+        title: Text("页面二"),
+      ),
       body: Container(
         child: Column(
           children: <Widget>[

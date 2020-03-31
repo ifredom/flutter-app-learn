@@ -1,10 +1,13 @@
+import 'package:first_flutter_app/ui/pages/404.dart';
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'modules/user_route.dart';
-import 'router_init.dart';
-import '404.dart';
 
 import 'modules/user_route.dart';
+
+abstract class IRouterProvider {
+  void initRouter(Router router);
+}
 
 class RoutesUtils {
   static Router router;

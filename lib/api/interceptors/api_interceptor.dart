@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart'
     show InterceptorsWrapper, Response, RequestOptions, Headers;
-import '../../constants/constants.dart';
-import '../../utils/common/sign.dart';
-import '../../utils/res/local_storage.dart';
-import '../../utils/res/local_storage_keys.dart';
+import 'package:first_flutter_app/core/constants/constants.dart';
+import 'package:first_flutter_app/core/utils/common/sign.dart';
+import 'package:first_flutter_app/core/utils/res/local_storage.dart';
+import 'package:first_flutter_app/core/utils/res/local_storage_keys.dart';
 import '../code.dart' show Code;
 import '../result_data.dart' show ResultData;
 import '../whiteListApi.dart';

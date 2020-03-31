@@ -1,4 +1,4 @@
-import 'package:first_flutter_app/pages/provider_demo.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt locator = GetIt.instance;

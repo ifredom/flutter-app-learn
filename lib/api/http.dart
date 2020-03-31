@@ -3,8 +3,8 @@ import 'dart:collection' show HashMap;
 import 'dart:convert';
 import 'package:dio/dio.dart'
     show Dio, Options, DioError, Response, DioErrorType;
+import 'package:first_flutter_app/core/constants/constants.dart';
 import './result_data.dart';
-import '../constants/constants.dart';
 import './interceptors/token_interceptor.dart' show TokenInterceptors;
 import './interceptors/header_interceptor.dart' show HeaderInterceptors;
 import './interceptors/log_interceptor.dart' show LogsInterceptors;

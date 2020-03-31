@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart'
     show InterceptorsWrapper, RequestOptions, Response, DioError;
-import '../../constants/constants.dart' show Constants;
+import 'package:first_flutter_app/core/constants/constants.dart';
 
 class LogsInterceptors extends InterceptorsWrapper {
   // static List

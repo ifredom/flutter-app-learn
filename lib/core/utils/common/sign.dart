@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
-import '../../constants/constants.dart';
+import 'package:first_flutter_app/core/constants/constants.dart';
 
 class SignServices {
   static String getSign(Map map) {

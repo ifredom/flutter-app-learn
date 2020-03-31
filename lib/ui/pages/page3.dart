@@ -1,4 +1,4 @@
-import 'package:first_flutter_app/widgets/focus_detector.dart';
+import 'package:first_flutter_app/ui/widgets/focus_detector.dart';
 import 'package:flutter/material.dart';
 
 void main() {

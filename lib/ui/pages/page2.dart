@@ -1,7 +1,7 @@
-import 'package:first_flutter_app/pages/provider_demo.dart';
+import 'package:first_flutter_app/ui/pages/provider2_demo.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:first_flutter_app/pages/provider2_demo.dart';
 
 class Page2Demo extends StatelessWidget {
   @override

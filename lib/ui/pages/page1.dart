@@ -1,8 +1,8 @@
 import 'package:first_flutter_app/locator.dart';
+import 'package:first_flutter_app/ui/pages/provider2_demo.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:first_flutter_app/pages/provider_demo.dart';
-import 'package:first_flutter_app/pages/provider2_demo.dart';
 import 'package:provider_architecture/viewmodel_provider.dart';
 import 'page2.dart';
 

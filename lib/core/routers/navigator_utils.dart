@@ -1,17 +1,37 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'application.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'routers.dart';
 
 /// fluro的路由跳转工具类
 class NavigatorUtils {
   TransitionType transitionType = TransitionType.native;
 
+  // Add routes that should behave as fullScreenDialogs
+  static final _fullScreenDialogs = [
+    // Routes.route_1,
+    // Routes.route_2,
+  ];
+
+  static Route<dynamic> generateRoute(
+    BuildContext context,
+    RouteSettings settings,
+  ) {
+    return platformPageRoute(
+      context: context,
+      settings: RouteSettings(name: settings.name),
+      builder: (context) => _generateView(settings),
+      fullscreenDialog: _fullScreenDialogs.contains(settings.name),
+    );
+  }
+
+  static Widget _generateView(RouteSettings settings) {}
+
   //不需要页面返回值的跳转
   static push(BuildContext context, String path,
       {bool replace = false, bool clearStack = false}) {
-    FocusScope.of(context).unfocus();
-    Application.router.navigateTo(context, path,
+    FocusScope.of(context).unfocus(); // 确保键盘关闭，防止页面部件溢出
+    RoutesUtils.router.navigateTo(context, path,
         replace: replace,
         clearStack: clearStack,
         transition: TransitionType.native);
@@ -31,7 +51,7 @@ class NavigatorUtils {
       BuildContext context, String path, Function(Object) function,
       {bool replace = false, bool clearStack = false}) {
     FocusScope.of(context).unfocus();
-    Application.router
+    RoutesUtils.router
         .navigateTo(context, path,
             replace: replace,
             clearStack: clearStack,
@@ -47,25 +67,6 @@ class NavigatorUtils {
     });
   }
 
-  /// 此方法不可用，有问题。。导航到新路由,背景颜色为透明色
-  // static void pushOpaque(BuildContext context, Widget child, bool opaque) {
-  //   Navigator.of(context).push(
-  //     PageRouteBuilder(
-  //         opaque: opaque,
-  //         pageBuilder: (context, animation, secondaryAnimation) => child),
-  //   );
-  // }
-
-  /// 显示dialog
-  static void showDialogs(
-      {BuildContext context, Widget dialog, barrierDismissible = true}) {
-    showDialog(
-      context: context,
-      barrierDismissible: barrierDismissible,
-      builder: (_) => dialog,
-    );
-  }
-
   /// 返回
   static void goBack(BuildContext context, {dynamic options}) {
     FocusScope.of(context).unfocus();
@@ -78,19 +79,11 @@ class NavigatorUtils {
     Navigator.pop(context, result);
   }
 
-  static goWebViewPage(BuildContext context, String title, String url) {
-    //fluro 不支持传中文,需转换
-    push(context,
-        '${RoutesUtils.webViewPage}?title=${Uri.encodeComponent(title)}&url=${Uri.encodeComponent(url)}');
-  }
-
-  ///Page页面的容器，做一次通用自定义
-  static Widget pageContainer(widget) {
-    return MediaQuery(
-      ///不受系统字体缩放影响
-      data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
-          .copyWith(textScaleFactor: 1),
-      child: widget,
-    );
+  /// 跳到指定页面，删除所有路由
+  static void goWithRemoveUntil(BuildContext context, String path,
+      {bool predicate}) {
+    FocusScope.of(context).unfocus();
+    Navigator.pushNamedAndRemoveUntil(
+        context, path, (Route<dynamic> route) => predicate ?? false);
   }
 }

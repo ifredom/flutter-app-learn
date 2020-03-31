@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' show Interceptor, RequestOptions, Response;
-import '../../utils/res/local_storage.dart';
-import '../../utils/res/local_storage_keys.dart';
+import 'package:first_flutter_app/core/utils/res/local_storage.dart';
+import 'package:first_flutter_app/core/utils/res/local_storage_keys.dart';
 
 class TokenInterceptors extends Interceptor {
   String _token;

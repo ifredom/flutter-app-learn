@@ -15,10 +15,13 @@ class Page1Demo extends StatelessWidget {
       viewModel: ProviderDemoModel(),
       builder: (context, model, child) => SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            title: Text("页面一"),
+          ),
           body: Container(
             child: Column(
               children: <Widget>[
-                FlatButton(
+                RaisedButton(
                   child: Text("跳转到page2"),
                   onPressed: () {
                     final store =

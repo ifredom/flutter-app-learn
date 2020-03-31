@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_architecture/provider_widget.dart';
@@ -6,17 +8,8 @@ import 'provider_demo.dart';
 import 'page1.dart';
 
 class RootComponent extends StatelessWidget {
-  _testFuture() {
-    Future<int> future = Future(() {
-      return 3;
-    }).then((onValue) {
-      print(onValue);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    _testFuture();
     return ViewModelProvider<ProviderDemoModel>.withConsumer(
         viewModel: ProviderDemoModel(),
         builder: (context, model, child) => SafeArea(

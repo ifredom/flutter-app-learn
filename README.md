@@ -14,6 +14,9 @@ A new Flutter application.
     # 运行.项目根目录下
   > flutter run -d [设备名称]
 
+  // 启动，特定入口文件
+  > flutter run --target lib/ui/pages/manage_dialog.dart
+
 ```
 
 ## flutter pub get无法下载

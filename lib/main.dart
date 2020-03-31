@@ -40,19 +40,6 @@ class _MyAppState extends State<MyApp> {
         ],
         child: MaterialApp(
           title: 'Flutter App',
-          theme: new ThemeData(
-            primaryColor: Color(0xFFC91B3A),
-            backgroundColor: Color(0xFFEFEFEF),
-            accentColor: Color(0xFF888888),
-            textTheme: TextTheme(
-              //设置Material的默认字体样式
-              body1: TextStyle(color: Color(0xFF888888), fontSize: 16.0),
-            ),
-            iconTheme: IconThemeData(
-              color: Color(0xFFC91B3A),
-              size: 35.0,
-            ),
-          ),
           home: RootComponent(),
           debugShowCheckedModeBanner: false,
         ),

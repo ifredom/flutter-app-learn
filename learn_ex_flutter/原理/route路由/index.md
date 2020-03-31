@@ -6,14 +6,10 @@ https://juejin.im/post/5c8db8e8f265da2d864b889f
 
 ```java
 
-Navigator.of(context).push(
-  Buidler
-);
+Navigator.of(context).push(PageBuidler);
 
-Navigator.of(context).push(
-   new MaterialPageRoute(
-  builder: (_) => new Page3(), maintainState: false)
-);
+Navigator.of(context).pushNamedAndRemoveUntil()
+
 ```
 
 ## 动态监听路由
@@ -37,3 +33,11 @@ Navigator.of(context).push(
   }
 
 ```
+
+## showDialog 路由相关问题
+
+/// https://juejin.im/entry/5cd264ff6fb9a032332b4510
+
+https://stackoverflow.com/questions/59596634/flutter-navigator-pop-not-dismiss-showdialog-widget-according-to-specified-con
+
+https://stackoverflow.com/questions/55548153/flutter-navigator-ofcontext-pop-vs-navigator-popcontext-difference

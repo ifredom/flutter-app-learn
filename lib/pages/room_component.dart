@@ -193,10 +193,9 @@ class SamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // alertDialog要设置狂高，必须要直接包裹SizeBox
-    return Material(
+    return AlertDialog(
       // backgroundColor: Colors.redAccent,
-      type: MaterialType.card,
-      child: SizedBox(
+      content: SizedBox(
         height: MediaQuery.of(context).size.height / 3,
         width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class HexToColor extends Color {
-  static int _getColorFromHex(String hexColor) {
+  // https://stackoverflow.com/questions/50081213/how-do-i-use-hexadecimal-color-strings-in-flutter
+  static int fromHex(String hexColor) {
+    assert(hexColor != null);
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
-    // 如果传入的十六进制颜色值不符合要求，返回默认值
-    if (hexColor == null ||
-        hexColor.length != 6 ||
-        int.tryParse(hexColor.substring(0, 6), radix: 16) == null) {
-      hexColor = '103580';
-    }
-    hexColor = "FF" + hexColor;
-    return int.parse(hexColor, radix: 16);
+    return int.parse('FF$hexColor', radix: 16);
   }
 
-  HexToColor(final String hexColor) : super(_getColorFromHex(hexColor));
+  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
+  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
+      '${alpha.toRadixString(16).padLeft(2, '0')}'
+      '${red.toRadixString(16).padLeft(2, '0')}'
+      '${green.toRadixString(16).padLeft(2, '0')}'
+      '${blue.toRadixString(16).padLeft(2, '0')}';
+
+  HexToColor(final String hexColor) : super(fromHex(hexColor));
 }

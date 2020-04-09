@@ -87,3 +87,8 @@ ScreenUtil + SizeBox
 
 //如果要指定语言，比如安卓使用java，iOS使用Swift
 flutter create -i swift -a java xxapp
+
+// 创建指定包名的项目 (https://juejin.im/post/5e804429f265da47a927de6b)
+
+flutter create --org [包名] [项目名称，同时也是包名后缀]
+flutter create --org com.ifredom myapp

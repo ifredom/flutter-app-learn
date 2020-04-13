@@ -1,37 +1,55 @@
-import 'package:first_flutter_app/core/utils/common/colorUtils.dart';
+import 'package:first_flutter_app/locator.dart';
+import 'package:first_flutter_app/ui/pages/provider2_demo.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
+import 'package:first_flutter_app/ui/pages/room_component.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(SemanticsDemoWidget());
+import 'core/managers/core_manager.dart';
+
+void main() async {
+  // 初始化 访问二进制文件/初始化插件
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Provider.debugCheckInvalidValueType = null;
+
+  await setupLocator();
+
+  // 设置全屏
+  // SystemChrome.setEnabledSystemUIOverlays([]);
+  runApp(MyApp());
 }
 
-// samantics组件是一个辅助组件，用来表述widget的实际语义。
-// 适用场景：为seo,或屏幕阅读器而准备.
-// 组件效果：被包裹的组件，在semantics tree 语义树中被标记为一个节点，用于搜索引擎搜索/
-class SemanticsDemoWidget extends StatelessWidget {
-  const SemanticsDemoWidget({
-    Key key,
-  }) : super(key: key);
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Semantics(
-          label: '被semantics包裹的组件，对搜索引擎而言，如同一个关键词',
-          child: Row(
-            children: <Widget>[
-              RaisedButton(
-                child: Text(
-                  "normal",
-                  style: TextStyle(color: HexToColor('')),
-                ),
-                onPressed: () {
-                  print('test');
-                },
-              ),
-            ],
-          ),
+    return CoreManager(
+      child: MultiProvider(
+        providers: [
+          // https://stackoverflow.com/questions/59513301/prevent-tried-to-use-provider-with-a-subtype-of-listenable-stream-flutter-erro
+          // Provider<ProviderDemoModel>(create: (_) => ProviderDemoModel()),
+          ListenableProvider<ProviderDemoModel>(
+              create: (_) => ProviderDemoModel()),
+          ListenableProvider<Provider2DemoModel>(
+              create: (_) => Provider2DemoModel()),
+        ],
+        child: MaterialApp(
+          title: 'Flutter App',
+          home: RootComponent(),
+          debugShowCheckedModeBanner: false,
+          // builder: (context, widget) {
+          //   return Navigator(
+          //     onGenerateRoute: (setting) =>
+          //         MaterialPageRoute(builder: (context) {
+          //       return Text("snakbar");
+          //     }),
+          //   );
+          // },
         ),
       ),
     );

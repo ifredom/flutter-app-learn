@@ -1,4 +1,3 @@
-import 'package:first_flutter_app/ui/pages/overlay_class.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +7,7 @@ import 'provider_demo.dart';
 import 'page1.dart';
 
 class RootComponent extends StatelessWidget {
-  GlobalKey _globalKey = GlobalKey();
+  final GlobalKey _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return ViewModelProvider<ProviderDemoModel>.withConsumer(

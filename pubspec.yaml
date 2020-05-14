@@ -31,6 +31,10 @@ dependencies:
   get_it: ^3.1.0
   visibility_detector: 0.1.4
   flutter_platform_widgets: ^0.32.4
+  flutter_inappwebview: 2.1.0
+  webview_flutter: 0.3.21
+  flutter_webview_plugin: 0.3.11
+
 
 dev_dependencies:
   flutter_test:

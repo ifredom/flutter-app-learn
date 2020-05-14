@@ -92,3 +92,7 @@ flutter create -i swift -a java xxapp
 
 flutter create --org [包名] [项目名称，同时也是包名后缀]
 flutter create --org com.ifredom myapp
+
+## flutter创建后项目升级到1.12以后版本
+
+https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects

@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:first_flutter_app/ui/pages/error_page.dart';
-import 'package:first_flutter_app/ui/pages/room_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'ui/root/room_component.dart';
 
 void main() {
   // 参考 https://github.com/xinsui01/github-app-flutter

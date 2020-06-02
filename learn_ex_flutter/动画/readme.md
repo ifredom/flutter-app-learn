@@ -113,3 +113,7 @@ Animation<int> alpha = new IntTween(begin: 0, end: 255).animate(curve);
 ```
 
 > 注： splash_page.dart 页面中有使用到
+
+## TickerProviderStateMixin 以及 SingleTickerProviderStateMixin
+
+[动画](https://juejin.im/post/5c8e6c11e51d4563131011fc)

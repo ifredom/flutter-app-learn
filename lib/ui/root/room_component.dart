@@ -1,10 +1,9 @@
+import 'package:first_flutter_app/ui/pages/page1.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_architecture/provider_widget.dart';
 import 'package:provider_architecture/viewmodel_provider.dart';
-import 'provider_demo.dart';
-import 'page1.dart';
 
 class RootComponent extends StatelessWidget {
   final GlobalKey _globalKey = GlobalKey();
@@ -80,8 +79,8 @@ class RootComponent extends StatelessWidget {
                         child: Text("跳转"),
                         onPressed: () {
                           Navigator.of(context).push(
-                            new MaterialPageRoute(
-                              builder: (_) => new Page1Demo(),
+                            MaterialPageRoute(
+                              builder: (_) => Page1Demo(),
                             ),
                           );
                         },

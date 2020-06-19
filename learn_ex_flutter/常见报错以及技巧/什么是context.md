@@ -5,8 +5,8 @@
 - 将异步操作放在一个异步方法中(checkWifi)
 - 在异步方法中,如果需要用的 context 的地方，比如 dialog，比如获取屏幕尺寸，或者 provider.都需要widget build之后才会生成context.
 
-
 参考：https://www.didierboelens.com/faq/week2/
+
 ```java
   _checkInitStateContext(_) async {
     showDialog(
@@ -30,7 +30,6 @@
     super.initState();
   }
 ```
-
 
 ## 注意
 

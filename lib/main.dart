@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +28,13 @@ void main() async {
 
   // 设置全屏
   // SystemChrome.setEnabledSystemUIOverlays([]);
+
+  /// 设置Android头部的导航栏透明
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
+
   runApp(MyApp());
 }
 
@@ -50,8 +60,7 @@ class _MyAppState extends State<MyApp> {
               title: '享弹',
               theme: AppTheme.themData,
               navigatorKey: navigationService.navigatorKey,
-              onGenerateRoute: (settings) =>
-                  RoutesUtils.generateRoute(context, settings),
+              onGenerateRoute: (settings) => RoutesUtils.generateRoute(context, settings),
               home: RootComponent(),
             ),
           ),

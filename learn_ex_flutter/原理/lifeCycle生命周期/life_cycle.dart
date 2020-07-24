@@ -52,19 +52,19 @@ class _CounterWidgetState extends State<CounterWidget> {
   }
 
   @override
-  void deactivate() {
+  void deactivate() { // 失效
     super.deactivate();
     print('deactivate');
   }
 
   @override
-  void dispose() {
+  void dispose() {// 丢掉, 处理, 安置
     super.dispose();
     print('dispose');
   }
 
   @override
-  void reassemble() {
+  void reassemble() {// 重组
     super.reassemble();
     print('reassemble');
   }

@@ -65,9 +65,7 @@ class _RegisteredElement extends ProxyElement {
   void mount(Element parent, dynamic newSlot) {
     super.mount(parent, newSlot);
 
-    // final widget = context.inheritFromWidgetOfExactType(_InheritedRegistryWidget) as _InheritedRegistryWidget;
-
-    final _inheritedRegistryWidget = inheritFromWidgetOfExactType(_InheritedRegistryWidget);
+    final _inheritedRegistryWidget = dependOnInheritedWidgetOfExactType<_InheritedRegistryWidget>();
     _registryWidgetState = _inheritedRegistryWidget.state;
     _registryWidgetState.registeredElements.add(this);
     _registryWidgetState.widget.elementNotifier?.value = _registryWidgetState.registeredElements;
@@ -76,7 +74,7 @@ class _RegisteredElement extends ProxyElement {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final _inheritedRegistryWidget = inheritFromWidgetOfExactType(_InheritedRegistryWidget);
+    final _inheritedRegistryWidget = dependOnInheritedWidgetOfExactType<_InheritedRegistryWidget>();
     _registryWidgetState = _inheritedRegistryWidget.state;
     _registryWidgetState.registeredElements.add(this);
     _registryWidgetState.widget.elementNotifier?.value = _registryWidgetState.registeredElements;

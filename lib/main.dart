@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import './locator.dart';
@@ -51,18 +50,16 @@ class _MyAppState extends State<MyApp> {
       child: MultiProvider(
         providers: providers,
         child: CoreManager(
-          child: OKToast(
-            child: MaterialApp(
-              debugShowCheckedModeBanner: false,
-              // localizationsDelegates: localizationsDelegates,
-              // supportedLocales: supportedLocales,
-              // localeResolutionCallback: loadSupportedLocals,
-              title: '享弹',
-              theme: AppTheme.themData,
-              navigatorKey: navigationService.navigatorKey,
-              onGenerateRoute: (settings) => RoutesUtils.generateRoute(context, settings),
-              home: RootComponent(),
-            ),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            // localizationsDelegates: localizationsDelegates,
+            // supportedLocales: supportedLocales,
+            // localeResolutionCallback: loadSupportedLocals,
+            title: '享弹',
+            theme: AppTheme.themData,
+            navigatorKey: navigationService.navigatorKey,
+            onGenerateRoute: (settings) => RoutesUtils.generateRoute(context, settings),
+            home: RootComponent(),
           ),
         ),
       ),

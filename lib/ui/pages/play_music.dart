@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:first_flutter_app/core/utils/common/ScreenUtil.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -61,23 +61,23 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
                 alignment: AlignmentDirectional.center,
                 children: <Widget>[
                   Positioned(
-                    top: ScreenUtil().setSp(39),
-                    left: ScreenUtil().setSp(31),
+                    top: 39,
+                    left: 31,
                     child: GestureDetector(
                       child: Image.asset(
                         "assets/images/actives/play_back.png",
-                        width: ScreenUtil().setSp(100),
-                        height: ScreenUtil().setSp(100),
+                        width: 50,
+                        height: 50,
                       ),
                       onTap: () {},
                     ),
                   ),
                   Positioned(
-                    top: ScreenUtil().setSp(39),
+                    top: 18,
                     child: Container(
-                      padding: EdgeInsets.only(left: ScreenUtil().setSp(80)),
-                      width: ScreenUtil().setSp(364),
-                      height: ScreenUtil().setSp(74),
+                      padding: EdgeInsets.only(left: 40),
+                      width: 182,
+                      height: 37,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.fitWidth,
@@ -96,12 +96,12 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
                     ),
                   ),
                   Positioned(
-                    top: ScreenUtil().setSp(39),
-                    right: ScreenUtil().setSp(31),
+                    top: 39,
+                    right: 31,
                     child: Container(
-                      padding: EdgeInsets.only(left: ScreenUtil().setSp(80)),
-                      width: ScreenUtil().setSp(298),
-                      height: ScreenUtil().setSp(74),
+                      padding: EdgeInsets.only(left: 80),
+                      width: 298,
+                      height: 74,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.fitWidth,
@@ -127,8 +127,8 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
             flex: 486,
             child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: ScreenUtil().setSp(9),
-                vertical: ScreenUtil().setSp(8),
+                horizontal: 9,
+                vertical: 8,
               ),
               decoration: BoxDecoration(
                   // color: Colors.transparent,
@@ -137,8 +137,8 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
                     width: 5,
                   ),
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(ScreenUtil().setSp(32)),
-                    topRight: Radius.circular(ScreenUtil().setSp(32)),
+                    topLeft: Radius.circular(32),
+                    topRight: Radius.circular(32),
                   )),
               child: _buildMusicScoreWebView(),
             ),

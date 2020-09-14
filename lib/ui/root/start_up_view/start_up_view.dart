@@ -1,19 +1,13 @@
+import 'package:first_flutter_app/ui/pages/page1.dart';
+import 'package:first_flutter_app/ui/pages/provider_demo.dart';
+import 'package:first_flutter_app/ui/widgets/popupRoute.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
-import 'provider_demo.dart';
 
-class ProviderTestPage extends StatefulWidget {
-  @override
-  _ProviderTestPageState createState() => _ProviderTestPageState();
-}
-
-class _ProviderTestPageState extends State<ProviderTestPage> {
-  int counter = 0;
-
+class StartUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("build root");
     return SafeArea(
       child: Scaffold(
         body: Row(
@@ -45,8 +39,6 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
                 _buildButton(
                   title: '打开自定义dialog',
                   callback: () {
-                    print("变化");
-
                     Navigator.of(context).push(
                       PageRouteBuilder(
                         barrierDismissible: true,
@@ -61,26 +53,43 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
                     );
                   },
                 ),
+                // UpdateTitleButton(),
                 RaisedButton(
                   child: Text("加"),
                   onPressed: () {
-                    final store = Provider.of<ProviderDemoModel>(
-                      context,
+                    Navigator.of(context).push(MyPopUpRoute(
+                      child: SamplePage(),
+                    ));
+                  },
+                ),
+                RaisedButton(
+                  child: Text("跳转"),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => Page1Demo(),
+                      ),
                     );
-                    store.add();
                   },
                 ),
                 RaisedButton(
                   child: Text("减"),
-                  onPressed: () {
-                    final store = Provider.of<ProviderDemoModel>(
-                      context,
-                    );
-                    store.reduce();
-                  },
+                  onPressed: () {},
                 ),
-                _buildTestPartOne(),
-                _buildTestPartTwo(),
+                Builder(builder: (context) {
+                  return RaisedButton(
+                    child: Text("点击1"),
+                    onPressed: () {
+                      final scaffold = Scaffold.of(context);
+                      scaffold.showSnackBar(
+                        SnackBar(
+                          content: const Text('提示信息'),
+                          action: SnackBarAction(label: 'UNDO', onPressed: () {}),
+                        ),
+                      );
+                    },
+                  );
+                }),
               ],
             )
           ],
@@ -102,18 +111,29 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
     print("_build TestPartOne");
     return Consumer(
       builder: (context, ProviderDemoModel snapshot, child) {
+        print("_root  partOne 内部");
         return Text(snapshot.price.toString());
       },
     );
   }
+}
 
-  Widget _buildTestPartTwo() {
-    print("_build TestPartTwo");
-    final provderDemoData = Provider.of<ProviderDemoModel>(
-      context,
+class BuildTestPartOne extends ViewModelWidget<ProviderDemoModel> {
+  BuildTestPartOne({
+    Key key,
+  }) : super(
+          key: key,
+        );
+
+  @override
+  Widget build(BuildContext context, model) {
+    print("_build 第一部分");
+    return Consumer<ProviderDemoModel>(
+      builder: (context, snapshot, child) {
+        print("_root  partOne 内部");
+        return Text(snapshot.price.toString());
+      },
     );
-    print(provderDemoData.price);
-    return Text("_buildTestPartTwo: 这里没有刷新");
   }
 }
 
@@ -148,11 +168,16 @@ class SamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // alertDialog要设置狂高，必须要直接包裹SizeBox
     return AlertDialog(
-      backgroundColor: Colors.redAccent,
+      // backgroundColor: Colors.redAccent,
       content: SizedBox(
-        height: MediaQuery.of(context).size.height / 3,
-        width: MediaQuery.of(context).size.width / 2,
+        height: 300,
+        width: 500,
         child: Stack(children: <Widget>[
+          Positioned(
+            right: -10.0,
+            top: -10.0,
+            child: Text("X"),
+          ),
           RaisedButton(
             child: Text("关闭"),
             onPressed: () {
@@ -161,6 +186,14 @@ class SamplePage extends StatelessWidget {
           ),
         ]),
       ),
+      // actions: <Widget>[
+      //   FlatButton(
+      //     child: Text('close'),
+      //     onPressed: () {
+      //       Navigator.of(context).pop();
+      //     },
+      //   ),
+      // ],
     );
   }
 }

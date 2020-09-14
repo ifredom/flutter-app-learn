@@ -7,7 +7,6 @@ import 'package:stacked/stacked.dart';
 import 'page2.dart';
 
 class Page1Demo extends StatelessWidget {
-  final _providerDemoModel = locator<ProviderDemoModel>();
   @override
   Widget build(BuildContext context) {
     print("build Page1页面");
@@ -24,14 +23,14 @@ class Page1Demo extends StatelessWidget {
                 RaisedButton(
                   child: Text("跳转到page2"),
                   onPressed: () {
-                    final store = Provider.of<ProviderDemoModel>(
-                      context,
-                    );
-                    store.add();
-                    final store2 = Provider.of<Provider2DemoModel>(
-                      context,
-                    );
-                    store2.setTitle();
+                    // final store = Provider.of<ProviderDemoModel>(
+                    //   context,
+                    // );
+                    // store.add();
+                    // final store2 = Provider.of<Provider2DemoModel>(
+                    //   context,
+                    // );
+                    // store2.setTitle();
 
                     Navigator.of(context).push(
                       new MaterialPageRoute(
@@ -43,7 +42,7 @@ class Page1Demo extends StatelessWidget {
                 Consumer<ProviderDemoModel>(
                   builder: (context, snapshot, child) {
                     print("_build page1 内部方法");
-                    return Text("${model.price.toString()}  ${_providerDemoModel.price}");
+                    return Text("${model.price.toString()}");
                   },
                 ),
               ],

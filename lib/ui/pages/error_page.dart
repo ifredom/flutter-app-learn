@@ -11,20 +11,17 @@ class ErrorPage extends StatefulWidget {
 }
 
 class _ErrorPageState extends State<ErrorPage> {
-  final TextEditingController textEditingController =
-      new TextEditingController();
+  final TextEditingController textEditingController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return Container(
       color: Color(0xFF24292E),
       child: Center(
         child: Container(
           alignment: Alignment.center,
-          width: width,
-          height: width,
+          width: 400,
+          height: 400,
           decoration: BoxDecoration(
             color: Colors.white.withAlpha(30),
             gradient: RadialGradient(
@@ -35,7 +32,7 @@ class _ErrorPageState extends State<ErrorPage> {
                 Color(0xFF24292E),
               ],
             ),
-            borderRadius: BorderRadius.all(Radius.circular(width / 2)),
+            borderRadius: BorderRadius.all(Radius.circular(400 / 2)),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -88,8 +85,7 @@ class _ErrorPageState extends State<ErrorPage> {
   }
 
   void _errorReport() {
-    String content =
-        '${widget.details.exception.toString()}\n${widget.details.stack.toString()}';
+    String content = '${widget.details.exception.toString()}\n${widget.details.stack.toString()}';
     showDialog(
         context: context,
         builder: (BuildContext context) {

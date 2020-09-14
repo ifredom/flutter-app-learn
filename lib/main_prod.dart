@@ -12,8 +12,7 @@ void main() {
       Zone.current.handleUncaughtError(details.exception, details.stack);
       return ErrorPage(details);
     };
-    SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight])
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight])
         .then((_) {
       runApp(RootComponent());
     });

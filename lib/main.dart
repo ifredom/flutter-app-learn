@@ -1,17 +1,10 @@
-import 'dart:io';
+import 'dart:async';
 
+import 'package:first_flutter_app/core/constants/constants.dart';
+import 'package:first_flutter_app/ui/pages/error_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 import './locator.dart';
-
-import 'core/constants/app_theme.dart';
-import 'core/managers/core_manager.dart';
-import 'core/managers/restart_manager.dart';
-import 'core/routers/routers.dart';
-import 'core/services/navigation/navigation_service.dart';
-import 'core/store/provider_setup.dart';
 import 'core/utils/common/logger.dart';
 import 'ui/root/room_component.dart';
 
@@ -19,50 +12,31 @@ void main() async {
   // 初始化 访问二进制文件/初始化插件
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// 启动日志
-  setupLogger();
+  await runZonedGuarded<Future<void>>(() async {
+    ErrorWidget.builder = (FlutterErrorDetails details) {
+      Zone.current.handleUncaughtError(details.exception, details.stack);
+      return ErrorPage(details);
+    };
 
-  /// 启动GetIt定位服务
-  await setupLocator();
+    // 启动日志
+    setupLogger();
 
-  // 设置全屏
-  // SystemChrome.setEnabledSystemUIOverlays([]);
+    /// 启动GetIt定位服务
+    // await setupLocator();
 
-  /// 设置Android头部的导航栏透明
-  if (Platform.isAndroid) {
-    SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-  }
-
-  runApp(MyApp());
+    runApp(RootComponent());
+  }, (Object error, StackTrace stackTrace) async {
+    await _reportError(error, stackTrace);
+  });
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  final navigationService = locator<NavigationService>();
-  @override
-  Widget build(BuildContext context) {
-    return RestartManager(
-      child: MultiProvider(
-        providers: providers,
-        child: CoreManager(
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            // localizationsDelegates: localizationsDelegates,
-            // supportedLocales: supportedLocales,
-            // localeResolutionCallback: loadSupportedLocals,
-            title: '享弹',
-            theme: AppTheme.themData,
-            navigatorKey: navigationService.navigatorKey,
-            onGenerateRoute: (settings) => RoutesUtils.generateRoute(context, settings),
-            home: RootComponent(),
-          ),
-        ),
-      ),
-    );
+// Zone中未捕获异常处理回调
+// https://github.com/flutter/crashy/blob/master/lib/main.dart
+Future<Null> _reportError(dynamic error, dynamic stackTrace) async {
+  print('异常捕获: $error');
+  if (Constants.DEBUG) {
+    print('异常处理: 开发模式, 不收集错误，不发送到服务端. $stackTrace');
+    return;
   }
+  print('发送异常信息到服务器 ...');
 }

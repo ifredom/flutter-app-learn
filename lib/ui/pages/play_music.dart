@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:first_flutter_app/core/utils/common/ScreenUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:provider_architecture/viewmodel_provider.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -173,8 +172,7 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
 
   /// 使用 webview_flutter 插件
   Widget _buildWebview() {
-    String url =
-        "http://localhost:8081/assets/webview/dist/index.html"; // "https://www.baidu.com"
+    String url = "http://localhost:8081/assets/webview/dist/index.html"; // "https://www.baidu.com"
 
     /// 使用SizeBox包裹, 可以在页面中部分显示
     return SizedBox(
@@ -212,8 +210,7 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
           // useOnLoadResource: true,
         ),
       ),
-      shouldOverrideUrlLoading:
-          (InAppWebViewController controller, String url) {},
+      shouldOverrideUrlLoading: (InAppWebViewController controller, String url) {},
       onWebViewCreated: (InAppWebViewController controller) {
         print("onWebViewCreated");
         webViewController = controller;

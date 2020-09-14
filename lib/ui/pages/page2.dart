@@ -17,8 +17,9 @@ class Page2Demo extends StatelessWidget {
             FlatButton(
               child: Text("点击"),
               onPressed: () {
-                final store =
-                    Provider.of<ProviderDemoModel>(context, listen: false);
+                final store = Provider.of<ProviderDemoModel>(
+                  context,
+                );
                 store.add();
               },
             ),

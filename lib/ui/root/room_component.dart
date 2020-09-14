@@ -2,15 +2,14 @@ import 'package:first_flutter_app/ui/pages/page1.dart';
 import 'package:first_flutter_app/ui/pages/provider_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_architecture/provider_widget.dart';
-import 'package:provider_architecture/viewmodel_provider.dart';
+import 'package:stacked/stacked.dart';
 
 class RootComponent extends StatelessWidget {
   final GlobalKey _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    return ViewModelProvider<ProviderDemoModel>.withConsumer(
-        viewModel: ProviderDemoModel(),
+    return ViewModelBuilder<ProviderDemoModel>.reactive(
+        viewModelBuilder: () => ProviderDemoModel(),
         builder: (context, model, child) => Scaffold(
               key: _globalKey,
               body: Row(
@@ -26,16 +25,14 @@ class RootComponent extends StatelessWidget {
                                 color: Colors.green,
                                 borderRadius: BorderRadius.only(
                                     topRight: Radius.elliptical(60.0, 100.0),
-                                    bottomRight:
-                                        Radius.elliptical(60.0, 100.0))),
+                                    bottomRight: Radius.elliptical(60.0, 100.0))),
                           ),
                         ),
                         Align(
                             alignment: Alignment.center,
                             child: Text(
                               "导航栏",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 25.0),
+                              style: TextStyle(color: Colors.white, fontSize: 25.0),
                             ))
                       ],
                     ),
@@ -54,10 +51,7 @@ class RootComponent extends StatelessWidget {
                               barrierColor: Color.fromRGBO(0, 0, 0, 0.6),
                               opaque: false,
                               pageBuilder: (_, anim1, anim2) => SlideTransition(
-                                position: Tween<Offset>(
-                                        begin: Offset(1.0, 0.0),
-                                        end: Offset.zero)
-                                    .animate(anim1),
+                                position: Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset.zero).animate(anim1),
                                 child: SamplePage(),
                               ),
                             ),
@@ -99,16 +93,12 @@ class RootComponent extends StatelessWidget {
                             scaffold.showSnackBar(
                               SnackBar(
                                 content: const Text('提示信息'),
-                                action: SnackBarAction(
-                                    label: 'UNDO', onPressed: () {}),
+                                action: SnackBarAction(label: 'UNDO', onPressed: () {}),
                               ),
                             );
                           },
                         );
                       }),
-                      BuildTestPartOne(),
-                      BuildTestPartTwo(),
-                      BuildTestPartThree(),
                     ],
                   )
                 ],
@@ -136,10 +126,12 @@ class RootComponent extends StatelessWidget {
   }
 }
 
-class BuildTestPartOne extends ProviderWidget<ProviderDemoModel> {
+class BuildTestPartOne extends ViewModelWidget<ProviderDemoModel> {
   BuildTestPartOne({
     Key key,
-  }) : super(key: key, listen: false);
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, model) {
@@ -173,16 +165,17 @@ class MyPopUpRoute extends PopupRoute {
   Duration get transitionDuration => const Duration(milliseconds: 300);
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return child;
   }
 }
 
-class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
+class BuildTestPartTwo extends ViewModelWidget<ProviderDemoModel> {
   BuildTestPartTwo({
     Key key,
-  }) : super(key: key, listen: false);
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, model) {
@@ -191,10 +184,10 @@ class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
   }
 }
 
-class BuildTestPartThree extends ProviderWidget<ProviderDemoModel> {
+class BuildTestPartThree extends ViewModelWidget<ProviderDemoModel> {
   BuildTestPartThree({
     Key key,
-  }) : super(key: key, listen: true);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, model) {

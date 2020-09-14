@@ -1,8 +1,8 @@
+import 'package:first_flutter_app/core/services/connectivity/connectivity_service.dart';
+import 'package:first_flutter_app/core/services/stoppable_service.dart';
 import 'package:flutter/material.dart';
-import 'package:pianostudent/core/services/connectivity/connectivity_service.dart';
-import 'package:pianostudent/locator.dart';
-import 'package:pianostudent/core/services/stoppable_service.dart';
-import 'package:pianostudent/core/utils/common/logger.dart';
+import 'package:first_flutter_app/locator.dart';
+import 'package:first_flutter_app/core/utils/common/logger.dart';
 
 /// A manager to start/stop [StoppableService]s when the app goes/returns into/from the background
 class LifeCycleManager extends StatefulWidget {
@@ -13,8 +13,7 @@ class LifeCycleManager extends StatefulWidget {
   _LifeCycleManagerState createState() => _LifeCycleManagerState();
 }
 
-class _LifeCycleManagerState extends State<LifeCycleManager>
-    with WidgetsBindingObserver {
+class _LifeCycleManagerState extends State<LifeCycleManager> with WidgetsBindingObserver {
   List<StoppableService> servicesToManage = [
     locator<ConnectivityService>(),
   ];

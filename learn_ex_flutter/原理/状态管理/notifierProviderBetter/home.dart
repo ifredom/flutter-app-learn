@@ -18,8 +18,7 @@ class CartModel extends ChangeNotifier {
   UnmodifiableListView<Item> get items => UnmodifiableListView(_items);
 
   // 购物车中商品的总价
-  double get totalPrice =>
-      _items.fold(0, (value, item) => value + item.count * item.price);
+  double get totalPrice => _items.fold(0, (value, item) => value + item.count * item.price);
 
   // 将 [item] 添加到购物车。这是唯一一种能从外部改变购物车的方法。
   void add(Item item) {
@@ -54,9 +53,9 @@ class _ProviderRouteState extends State<ProviderRoute> {
                         child: Text("添加商品"),
                         onPressed: () {
                           // 给购物车中商品，添加后总价会更新
-                          ChangeNotifierProvider.of<CartModel>(context,
-                                  listen: false)
-                              .add(Item(20.0, 1));
+                          ChangeNotifierProvider.of<CartModel>(
+                            context,
+                          ).add(Item(20.0, 1));
                         },
                       );
                     },

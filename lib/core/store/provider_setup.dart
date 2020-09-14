@@ -6,11 +6,7 @@ import 'package:provider/single_child_widget.dart';
 /// app can use these streams anywhere there is a [BuildContext]
 ///
 /// // https://stackoverflow.com/questions/59590673/flutter-app-crash-after-converting-provider-3-to-4
-List<SingleChildWidget> providers = [
-  ...independentServices,
-  ...dependentServices,
-  ...uiConsumableProviders
-];
+List<SingleChildWidget> providers = [...independentServices, ...dependentServices, ...uiConsumableProviders];
 
 // 引入不会随意变化的全局model
 List<SingleChildWidget> independentServices = [
@@ -26,8 +22,8 @@ List<SingleChildWidget> uiConsumableProviders = [
   // StreamProvider<ConnectivityStatus>(
   //   create: (context) => locator<ConnectivityService>().connectivity$,
   // ),
-  // 解释: StreamProvider<数据模型>  Provider.of<数据服务>   设置为false,不监听变化数据变化 listen: false
+  // 解释: StreamProvider<数据模型>  Provider.of<数据服务>   设置为false,不监听变化数据变化
   //   StreamProvider<User>(
-  //   builder: (context) => Provider.of<UserService>(context, listen: false).weather,
+  //   builder: (context) => Provider.of<UserService>(context, ).weather,
   // ),
 ];

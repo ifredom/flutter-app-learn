@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_architecture/provider_widget.dart';
+import 'package:stacked/stacked.dart';
 import 'provider_demo.dart';
 
 class ProviderTestPage extends StatefulWidget {
@@ -28,8 +28,7 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
                       decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.elliptical(60.0, 100.0),
-                              bottomRight: Radius.elliptical(60.0, 100.0))),
+                              topRight: Radius.elliptical(60.0, 100.0), bottomRight: Radius.elliptical(60.0, 100.0))),
                     ),
                   ),
                   Align(
@@ -55,9 +54,7 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
                         barrierColor: Color.fromRGBO(0, 0, 0, 0.6),
                         opaque: false,
                         pageBuilder: (_, anim1, anim2) => SlideTransition(
-                          position: Tween<Offset>(
-                                  begin: Offset(1.0, 0.0), end: Offset.zero)
-                              .animate(anim1),
+                          position: Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset.zero).animate(anim1),
                           child: SamplePage(),
                         ),
                       ),
@@ -67,16 +64,18 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
                 RaisedButton(
                   child: Text("加"),
                   onPressed: () {
-                    final store =
-                        Provider.of<ProviderDemoModel>(context, listen: false);
+                    final store = Provider.of<ProviderDemoModel>(
+                      context,
+                    );
                     store.add();
                   },
                 ),
                 RaisedButton(
                   child: Text("减"),
                   onPressed: () {
-                    final store =
-                        Provider.of<ProviderDemoModel>(context, listen: false);
+                    final store = Provider.of<ProviderDemoModel>(
+                      context,
+                    );
                     store.reduce();
                   },
                 ),
@@ -110,17 +109,20 @@ class _ProviderTestPageState extends State<ProviderTestPage> {
 
   Widget _buildTestPartTwo() {
     print("_build TestPartTwo");
-    final provderDemoData =
-        Provider.of<ProviderDemoModel>(context, listen: false);
+    final provderDemoData = Provider.of<ProviderDemoModel>(
+      context,
+    );
     print(provderDemoData.price);
     return Text("_buildTestPartTwo: 这里没有刷新");
   }
 }
 
-class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
+class BuildTestPartTwo extends ViewModelWidget<ProviderDemoModel> {
   BuildTestPartTwo({
     Key key,
-  }) : super(key: key, listen: false);
+  }) : super(
+          key: key,
+        );
 
   @override
   Widget build(BuildContext context, model) {
@@ -129,10 +131,10 @@ class BuildTestPartTwo extends ProviderWidget<ProviderDemoModel> {
   }
 }
 
-class BuildTestPartThree extends ProviderWidget<ProviderDemoModel> {
+class BuildTestPartThree extends ViewModelWidget<ProviderDemoModel> {
   BuildTestPartThree({
     Key key,
-  }) : super(key: key, listen: true);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, model) {

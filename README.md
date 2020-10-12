@@ -19,9 +19,9 @@ A new Flutter application.
 
 ```
 
-## flutter pub get无法下载
+## flutter pub get 无法下载
 
-使用管理员权限启动poweshell， 在项目根目录下执行`flutter pub get`
+使用管理员权限启动 poweshell， 在项目根目录下执行`flutter pub get`
 
 ## debug
 
@@ -54,6 +54,9 @@ vscode 中按下 `alt+shift+F`格式化快捷键，格式化结果可能会不�
 
 ScreenUtil + SizeBox
 
+> Material 设计规范中状态栏、导航栏、ListTile 高度分别为 24、56、56
+> pushNamedAndRemoveUntil 会推入一个新的路由，新路有会执行初始化全部生命周期
+
 ## 异常报错
 
 > unfortunately firstapp has stopped
@@ -79,13 +82,13 @@ ScreenUtil + SizeBox
  cd <into project directory>
  flutter create .
  flutter run -d chrome
- ```
+```
 
-## 创建flutter项目
+## 创建 flutter 项目
 
-注意： 不同版本下的flutter，创建出来的项目是有区别的。flutter 1.12进行了大量的不兼容性更新
+注意： 不同版本下的 flutter，创建出来的项目是有区别的。flutter 1.12 进行了大量的不兼容性更新
 
-//如果要指定语言，比如安卓使用java，iOS使用Swift
+//如果要指定语言，比如安卓使用 java，iOS 使用 Swift
 flutter create -i swift -a java xxapp
 
 // 创建指定包名的项目 (https://juejin.im/post/5e804429f265da47a927de6b)
@@ -93,6 +96,6 @@ flutter create -i swift -a java xxapp
 flutter create --org [包名] [项目名称，同时也是包名后缀]
 flutter create --org com.ifredom myapp
 
-## flutter创建后项目升级到1.12以后版本
+## flutter 创建后项目升级到 1.12 以后版本
 
 https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects

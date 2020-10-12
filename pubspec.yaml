@@ -36,6 +36,9 @@ dependencies:
   get_it: 4.0.4
   get: 3.10.2
   focus_detector: 1.0.2
+  # 蓝牙插件
+  flutter_ble_lib: 2.2.9
+  rxdart: 0.24.1
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedImage extends AnimatedWidget {
-  const AnimatedImage({Key key, Animation<double> animation})
-      : super(key: key, listenable: animation);
+  const AnimatedImage({Key key, Animation<double> animation}) : super(key: key, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +29,7 @@ class FirstPage extends StatefulWidget {
   _FirstPageState createState() => _FirstPageState();
 }
 
-class _FirstPageState extends State<FirstPage>
-    with SingleTickerProviderStateMixin {
+class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
 

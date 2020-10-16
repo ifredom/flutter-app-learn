@@ -59,8 +59,7 @@ class _PageViewDemoState extends State<PageViewDemo> {
 }
 
 class _SimplePage extends StatelessWidget {
-  _SimplePage(this.data, {Key key, this.parallaxOffset = 0.0})
-      : super(key: key);
+  _SimplePage(this.data, {Key key, this.parallaxOffset = 0.0}) : super(key: key);
 
   final String data;
   final double parallaxOffset;
@@ -79,8 +78,7 @@ class _SimplePage extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Transform(
-                  transform:
-                      Matrix4.translationValues(parallaxOffset, 0.0, 0.0),
+                  transform: Matrix4.translationValues(parallaxOffset, 0.0, 0.0),
                   child: const Text(
                     '左右滑动，这是第二行滚动速度更快的小字',
                     style: const TextStyle(fontSize: 16.0, color: Colors.black),

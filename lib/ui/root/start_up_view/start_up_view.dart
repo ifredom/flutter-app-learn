@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:first_flutter_app/ui/pages/page1.dart';
 import 'package:first_flutter_app/ui/pages/provider_demo.dart';
-import 'package:first_flutter_app/ui/widgets/popupRoute.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
@@ -8,6 +9,27 @@ import 'package:stacked/stacked.dart';
 class StartUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // https://juejin.im/post/6844904176489594893
+    final mediaQueryData = MediaQuery.of(context);
+
+    final screenWidth = mediaQueryData.size.width;
+    final screenHeight = mediaQueryData.size.height;
+    final physicalWidth = window.physicalSize.width;
+    final physicalHeight = window.physicalSize.height;
+
+    final dpr = window.devicePixelRatio;
+
+    print("屏幕尺寸 width: $screenWidth height: $screenHeight");
+    print("分辨率: $physicalWidth - $physicalHeight");
+    print('设备dpr： $dpr');
+
+    // 3.状态栏的高度
+    // 有刘海的屏幕:44 没有刘海的屏幕为20
+    final statusBarHeight = mediaQueryData.padding.top;
+    // 有刘海的屏幕:34 没有刘海的屏幕0
+    final bottomHeight = mediaQueryData.padding.bottom;
+    print("状态栏height: $statusBarHeight 底部高度:$bottomHeight");
+
     return SafeArea(
       child: Scaffold(
         body: Row(
@@ -53,17 +75,8 @@ class StartUpView extends StatelessWidget {
                     );
                   },
                 ),
-                // UpdateTitleButton(),
                 RaisedButton(
-                  child: Text("加"),
-                  onPressed: () {
-                    Navigator.of(context).push(MyPopUpRoute(
-                      child: SamplePage(),
-                    ));
-                  },
-                ),
-                RaisedButton(
-                  child: Text("跳转"),
+                  child: Text("provider测试"),
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -72,13 +85,9 @@ class StartUpView extends StatelessWidget {
                     );
                   },
                 ),
-                RaisedButton(
-                  child: Text("减"),
-                  onPressed: () {},
-                ),
                 Builder(builder: (context) {
                   return RaisedButton(
-                    child: Text("点击1"),
+                    child: Text("显示SnackBar"),
                     onPressed: () {
                       final scaffold = Scaffold.of(context);
                       scaffold.showSnackBar(

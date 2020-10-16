@@ -14,6 +14,6 @@ class ResultData {
   Map<String, dynamic> toJson() => {
         'data': data,
         'result': result,
-        'data': data,
+        'code': code,
       };
 }

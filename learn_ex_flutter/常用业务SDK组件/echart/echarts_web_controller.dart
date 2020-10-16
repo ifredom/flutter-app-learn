@@ -1,9 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class EChartsWebController {
@@ -11,7 +8,7 @@ class EChartsWebController {
 
   EChartsWebController({this.htmlLocation});
 
-  EChartsWebController.init(int id,{this.htmlLocation}) {
+  EChartsWebController.init(int id, {this.htmlLocation}) {
     _channel = new MethodChannel('my_echarts_$id');
     _pageFinsihed = EventChannel('my_echarts_stream_pagefinish_$id');
   }
@@ -47,15 +44,12 @@ class EChartsWebController {
   }
 
   Stream<String> get onPageFinished {
-    var url = _pageFinsihed
-        .receiveBroadcastStream()
-        .map<String>((element) => element);
+    var url = _pageFinsihed.receiveBroadcastStream().map<String>((element) => element);
     return url;
   }
 
   Stream<String> get onPageStarted {
-    var url =
-        _pageStarted.receiveBroadcastStream().map<String>((element) => element);
+    var url = _pageStarted.receiveBroadcastStream().map<String>((element) => element);
     return url;
   }
 }

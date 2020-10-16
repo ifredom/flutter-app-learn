@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,15 +36,13 @@ class _EChartsState extends State<ECharts> {
         finished = true;
       });
     });
-    var data = await rootBundle.loadString(
-        this.webController.htmlLocation ?? "assets/echarts/index.html",
-        cache: false);
+    var data =
+        await rootBundle.loadString(this.webController.htmlLocation ?? "assets/echarts/index.html", cache: false);
     this.webController.loadData(data);
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     finished = false;
   }

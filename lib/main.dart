@@ -4,7 +4,6 @@ import 'package:first_flutter_app/core/constants/constants.dart';
 import 'package:first_flutter_app/ui/pages/error_page.dart';
 import 'package:flutter/material.dart';
 
-import './locator.dart';
 import 'core/utils/common/logger.dart';
 import 'ui/root/room_component.dart';
 

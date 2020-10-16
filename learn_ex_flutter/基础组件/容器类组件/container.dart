@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class ProgressRoute extends StatefulWidget {
   @override
@@ -20,7 +19,7 @@ class _ProgressRouteState extends State<ProgressRoute> {
           // ),
           gradient: RadialGradient(
             //背景径向渐变
-            // colors: [Colors.red, Colors.orange],
+            colors: [Colors.red, Colors.orange],
             center: Alignment.topLeft,
             radius: .98,
           ),

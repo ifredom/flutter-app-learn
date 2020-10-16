@@ -40,11 +40,8 @@ class LinkedScrollControllerGroup {
 
   /// Creates a new controller that is linked to any existing ones.
   ScrollController addAndGet() {
-    final initialScrollOffset = _attachedControllers.isEmpty
-        ? 0.0
-        : _attachedControllers.first.position.pixels;
-    final controller =
-        _LinkedScrollController(this, initialScrollOffset: initialScrollOffset);
+    final initialScrollOffset = _attachedControllers.isEmpty ? 0.0 : _attachedControllers.first.position.pixels;
+    final controller = _LinkedScrollController(this, initialScrollOffset: initialScrollOffset);
     _allControllers.add(controller);
     controller.addListener(_offsetNotifier.notifyListeners);
     return controller;
@@ -71,8 +68,7 @@ class LinkedScrollControllerGroup {
   }) async {
     final animations = <Future<void>>[];
     for (final controller in _attachedControllers) {
-      animations
-          .add(controller.animateTo(offset, duration: duration, curve: curve));
+      animations.add(controller.animateTo(offset, duration: duration, curve: curve));
     }
     return Future.wait<void>(animations).then<void>((List<void> _) => null);
   }
@@ -136,14 +132,12 @@ class _LinkedScrollController extends ScrollController {
         '_LinkedScrollControllers can only be used with'
         ' _LinkedScrollPositions.');
     final _LinkedScrollPosition linkedPosition = position;
-    assert(linkedPosition.owner == this,
-        '_LinkedScrollPosition cannot change controllers once created.');
+    assert(linkedPosition.owner == this, '_LinkedScrollPosition cannot change controllers once created.');
     super.attach(position);
   }
 
   @override
-  _LinkedScrollPosition createScrollPosition(ScrollPhysics physics,
-      ScrollContext context, ScrollPosition oldPosition) {
+  _LinkedScrollPosition createScrollPosition(ScrollPhysics physics, ScrollContext context, ScrollPosition oldPosition) {
     return _LinkedScrollPosition(
       this,
       physics: physics,
@@ -163,9 +157,7 @@ class _LinkedScrollController extends ScrollController {
 
   Iterable<_LinkedScrollActivity> linkWithPeers(_LinkedScrollPosition driver) {
     assert(canLinkWithPeers);
-    return _allPeersWithClients
-        .map((peer) => peer.link(driver))
-        .expand((e) => e);
+    return _allPeersWithClients.map((peer) => peer.link(driver)).expand((e) => e);
   }
 
   Iterable<_LinkedScrollActivity> link(_LinkedScrollPosition driver) {
@@ -216,7 +208,6 @@ class _LinkedScrollPosition extends ScrollPositionWithSingleContext {
 
   // Calls hold without propagating to peers.
   void _holdInternal() {
-    // TODO: passing null to hold seems fishy, but it doesn't
     // appear to hurt anything. Revisit this if bad things happen.
     super.hold(null);
   }
@@ -240,9 +231,7 @@ class _LinkedScrollPosition extends ScrollPositionWithSingleContext {
     if (newPixels == pixels) {
       return 0.0;
     }
-    updateUserScrollDirection(newPixels - pixels > 0.0
-        ? ScrollDirection.forward
-        : ScrollDirection.reverse);
+    updateUserScrollDirection(newPixels - pixels > 0.0 ? ScrollDirection.forward : ScrollDirection.reverse);
 
     if (owner.canLinkWithPeers) {
       _peerActivities.addAll(owner.linkWithPeers(this));
@@ -263,9 +252,7 @@ class _LinkedScrollPosition extends ScrollPositionWithSingleContext {
     if (value == pixels) {
       return;
     }
-    updateUserScrollDirection(value - pixels > 0.0
-        ? ScrollDirection.forward
-        : ScrollDirection.reverse);
+    updateUserScrollDirection(value - pixels > 0.0 ? ScrollDirection.forward : ScrollDirection.reverse);
 
     if (owner.canLinkWithPeers) {
       _peerActivities.addAll(owner.linkWithPeers(this));

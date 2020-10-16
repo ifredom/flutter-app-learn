@@ -6,8 +6,6 @@ class ProviderDemoModel with ChangeNotifier {
   int _count = 0;
   int get count => _count;
 
-  bool _disposed = false;
-
   void add() {
     _price += 1;
     notifyListeners();
@@ -21,11 +19,5 @@ class ProviderDemoModel with ChangeNotifier {
   void increment() {
     _count++;
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    _disposed = true;
-    super.dispose();
   }
 }

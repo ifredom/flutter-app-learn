@@ -37,9 +37,7 @@
         <!-- 百度地图 Key配置 -->
         <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="5l5vV3CAr0Qj7yawCnT9rxjhXQsaCdrk" />
         <!-- 百度地图 间隔定位必须配置此service否则功能无效-->
-        <service android:name="com.baidu.location.f"
-                android:enabled="true"
-                android:process=":remote"/>
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"/>
 
         <receiver android:name=".BootBroadcastReceiver">
             <!--注册开机广播地址-->

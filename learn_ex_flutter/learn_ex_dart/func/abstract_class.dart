@@ -40,7 +40,6 @@ class Dog extends Animal {
 
   @override
   run() {
-    // TODO: implement run
     print('小狗在跑');
   }
 }
@@ -48,13 +47,11 @@ class Dog extends Animal {
 class Cat extends Animal {
   @override
   eat() {
-    // TODO: implement eat
     print('小猫在吃老鼠');
   }
 
   @override
   run() {
-    // TODO: implement run
     print('小猫在跑');
   }
 }

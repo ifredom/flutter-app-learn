@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class SpinningWheel extends StatefulWidget {
@@ -13,8 +11,7 @@ class SpinningWheel extends StatefulWidget {
   _SpinningWheelState createState() => _SpinningWheelState();
 }
 
-class _SpinningWheelState extends State<SpinningWheel>
-    with SingleTickerProviderStateMixin {
+class _SpinningWheelState extends State<SpinningWheel> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _animation;
 
@@ -26,13 +23,12 @@ class _SpinningWheelState extends State<SpinningWheel>
       vsync: this,
       duration: Duration(seconds: 5),
     );
-    _animation = Tween(begin: 0.0, end: 1.0).animate(
-        CurvedAnimation(parent: _animationController, curve: Curves.linear));
+    _animation =
+        Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: _animationController, curve: Curves.linear));
   }
 
   _startOrStop() {
-    print(
-        'start/stop ${_animationController.status} - ${_animationController.isAnimating}');
+    print('start/stop ${_animationController.status} - ${_animationController.isAnimating}');
     if (_animationController.isAnimating) {
       _animationController.stop();
     } else {

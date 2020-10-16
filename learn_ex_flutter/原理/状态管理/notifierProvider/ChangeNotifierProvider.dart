@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'package:flutter/material.dart';
 
 /// 该方法用于在Dart中获取模板类型
@@ -34,18 +33,15 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   // 定义一个便捷方法，方便子树中的Widget获取共享数据
   static T of<T>(BuildContext context) {
     final type = _typeOf<InheritedProvider<T>>();
-    final provider =
-        context.inheritFromWidgetOfExactType(type) as InheritedProvider<T>;
+    final provider = context.inheritFromWidgetOfExactType(type) as InheritedProvider<T>;
     return provider.data;
   }
 
   @override
-  _ChangeNotifierProviderState<T> createState() =>
-      _ChangeNotifierProviderState<T>();
+  _ChangeNotifierProviderState<T> createState() => _ChangeNotifierProviderState<T>();
 }
 
-class _ChangeNotifierProviderState<T extends ChangeNotifier>
-    extends State<ChangeNotifierProvider<T>> {
+class _ChangeNotifierProviderState<T extends ChangeNotifier> extends State<ChangeNotifierProvider<T>> {
   void update() {
     //如果数据发生变化（model类调用了notifyListeners），重新构建InheritedProvider
     setState(() {});

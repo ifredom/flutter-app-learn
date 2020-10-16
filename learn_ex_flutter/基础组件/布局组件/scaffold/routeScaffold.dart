@@ -24,15 +24,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         ],
       ),
       // drawer: new MyDrawer(), // 抽屉
-      bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
-            BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('business')),
-            BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('school')),
-          ],
-          currentIndex: _currentIndex,
-          fixedColor: _bottomNavigationColor,
-          onTap: _onItemTapped),
+      bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+        BottomNavigationBarItem(icon: Icon(Icons.business), label: 'business'),
+        BottomNavigationBarItem(icon: Icon(Icons.school), label: 'school'),
+      ], currentIndex: _currentIndex, fixedColor: _bottomNavigationColor, onTap: _onItemTapped),
       floatingActionButton: FloatingActionButton(
         onPressed: _onAdd,
         child: Icon(Icons.add),

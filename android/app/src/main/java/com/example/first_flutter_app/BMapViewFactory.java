@@ -11,6 +11,7 @@ import io.flutter.plugin.platform.PlatformViewFactory;
 
 
 // https://juejin.im/post/5bed04d96fb9a049a42e9c40
+// https://blog.csdn.net/tianmaxingkong_/article/details/104170334
 public class BMapViewFactory extends PlatformViewFactory {
     private MapView mapView;
 

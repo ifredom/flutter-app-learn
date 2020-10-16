@@ -28,8 +28,7 @@ class _Page1State extends State<Page1> {
                       decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.elliptical(60.0, 100.0),
-                              bottomRight: Radius.elliptical(60.0, 100.0))),
+                              topRight: Radius.elliptical(60.0, 100.0), bottomRight: Radius.elliptical(60.0, 100.0))),
                     ),
                   ),
                   Align(
@@ -63,7 +62,7 @@ class MyPopUpRoute extends PopupRoute {
   });
 
   @override
-  Color get barrierColor => null;
+  Color get barrierColor => Color.fromRGBO(0, 0, 0, 0.6);
 
   @override
   bool get barrierDismissible => true;
@@ -76,8 +75,7 @@ class MyPopUpRoute extends PopupRoute {
   Duration get transitionDuration => const Duration(milliseconds: 300);
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return child;
   }
 }

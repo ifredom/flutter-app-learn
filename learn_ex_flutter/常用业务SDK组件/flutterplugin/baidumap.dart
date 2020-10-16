@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BaiduMapTestPage extends StatefulWidget {
@@ -7,18 +8,13 @@ class BaiduMapTestPage extends StatefulWidget {
 
 class _BaiduMapTestPageState extends State<BaiduMapTestPage> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    var nativeView = AndroidView(viewType: "MapView");
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      nativeView = AndroidView(viewType: "MapView");
+    } else {
+      // nativeView = UiKitView(viewType: "MapView");
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text("Map"),
@@ -26,9 +22,10 @@ class _BaiduMapTestPageState extends State<BaiduMapTestPage> {
       body: Stack(
         children: <Widget>[
           SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: AndroidView(viewType: "MapView"))
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: nativeView,
+          )
         ],
       ),
     );

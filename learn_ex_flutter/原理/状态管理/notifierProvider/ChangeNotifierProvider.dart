@@ -33,7 +33,7 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   // 定义一个便捷方法，方便子树中的Widget获取共享数据
   static T of<T>(BuildContext context) {
     final type = _typeOf<InheritedProvider<T>>();
-    final provider = context.inheritFromWidgetOfExactType(type) as InheritedProvider<T>;
+    final provider = context.dependOnInheritedWidgetOfExactType(aspect: type) as InheritedProvider<T>;
     return provider.data;
   }
 

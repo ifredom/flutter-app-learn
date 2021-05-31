@@ -43,8 +43,8 @@ class ChangeNotifierProvider<T extends ChangeNotifier> extends StatefulWidget {
   static T of<T>(BuildContext context, {bool listen = true}) {
     final type = _typeOf<InheritedProvider<T>>();
     final provider = listen
-        ? context.inheritFromWidgetOfExactType(type) as InheritedProvider<T>
-        : context.ancestorInheritedElementForWidgetOfExactType(type)?.widget
+        ? context.dependOnInheritedWidgetOfExactType(aspect:type) as InheritedProvider<T>
+        : context.getElementForInheritedWidgetOfExactType<InheritedProvider<T>>()?.widget
             as InheritedProvider<T>;
 
     return provider.data;

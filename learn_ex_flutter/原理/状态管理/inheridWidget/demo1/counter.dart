@@ -9,7 +9,7 @@ class CounterProvider extends InheritedWidget {
       : super(key: key, child: child);
 
   static CounterProvider of(BuildContext context) {
-    return (context.inheritFromWidgetOfExactType(CounterProvider)
+    return (context.dependOnInheritedWidgetOfExactType(aspect:CounterProvider)
         as CounterProvider);
   }
 

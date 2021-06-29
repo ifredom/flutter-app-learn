@@ -10,11 +10,11 @@ class BuilderApi extends StatelessWidget {
         title: Text('My Profile'),
       ),
       body: Builder(
-        builder: (ctx) => RaisedButton(
-            textColor: Colors.red,
+        builder: (ctx) => ElevatedButton(
+            style: ButtonStyle(textStyle: MaterialStateProperty.all(TextStyle(color: Colors.red))),
             child: Text('Submit'),
             onPressed: () {
-              Scaffold.of(ctx).showSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Profile Save'),
                 ),

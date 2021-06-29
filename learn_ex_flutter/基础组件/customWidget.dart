@@ -8,7 +8,7 @@ class IfredomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new RaisedButton(onPressed: () {}, child: new Text(label));
+    return new ElevatedButton(onPressed: () {}, child: new Text(label));
   }
 }
 

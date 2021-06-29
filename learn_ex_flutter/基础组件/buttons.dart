@@ -14,34 +14,32 @@ class IfredomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        RaisedButton(
-          child: Text("normal"),
+        Center(
+          child: Text("按钮以及升级到flutter2.0"),
+        ),
+        ElevatedButton(
+          child: Text("ElevatedButton"),
           onPressed: () {
             print('test');
           },
         ),
-        RaisedButton.icon(
+        ElevatedButton.icon(
           icon: Icon(Icons.send),
-          color: Color.fromRGBO(55, 1, 200, 1),
-          label: Text("normal"),
+          style: ButtonStyle(textStyle: MaterialStateProperty.all(TextStyle(color: Color.fromRGBO(55, 1, 200, 1)))),
+          label: Text("ElevatedButton.icon"),
           onPressed: () {
             print('test');
           },
         ),
-        FlatButton(
-          color: Colors.blue[700],
-          highlightColor: Colors.black87,
-          colorBrightness: Brightness.dark,
-          splashColor: Colors.grey,
-          child: Text('flatbutton'),
+        TextButton(
+          child: Text('TextButton'),
           onPressed: () {
             print('flatbutton');
           },
         ),
-        OutlineButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          child: Text('flatbutton'),
+        OutlinedButton(
+          style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0))),
+          child: Text('OutlinedButton 形状'),
           onPressed: () {
             print('flatbutton');
           },

@@ -37,7 +37,7 @@ class AddButton extends StatelessWidget {
     print("build-----------AddButton");
     return Consumer(
       builder: (context, ProviderDemoModel snapshot, child) {
-        return FlatButton(
+        return TextButton(
           child: Text("ProviderDemoModel ➕"),
           onPressed: () {
             print("加号区域");
@@ -55,7 +55,7 @@ class ReduceButton extends StatelessWidget {
     print("build-----------ReduceButton");
     return Consumer(
         builder: (context, ProviderDemoModel snapshot, child) {
-          return FlatButton(
+          return TextButton(
             child: Text("ProviderDemoModel -"),
             onPressed: () {
               print("减号区域");

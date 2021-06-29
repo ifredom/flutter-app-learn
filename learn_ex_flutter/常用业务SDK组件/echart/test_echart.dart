@@ -73,7 +73,7 @@ class _ExampleAppState extends State<ExampleApp> {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       child: Text('Update'),
                       onPressed: () {
                         _update();

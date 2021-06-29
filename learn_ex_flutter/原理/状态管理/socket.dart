@@ -13,6 +13,7 @@ class _FirstPageState extends State<FirstPage> {
 
   @override
   void initState() {
+    super.initState();
     //创建websocket连接
     channel = new IOWebSocketChannel.connect('ws://echo.websocket.org');
   }

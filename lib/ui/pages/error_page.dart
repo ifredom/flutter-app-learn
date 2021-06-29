@@ -1,4 +1,3 @@
-import 'package:first_flutter_app/locator.dart';
 import 'package:flutter/material.dart';
 
 class ErrorPage extends StatefulWidget {
@@ -60,16 +59,22 @@ class _ErrorPageState extends State<ErrorPage> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
-                    color: Color(0xFF24292E),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                        textStyle: TextStyle(
+                      color: Color(0xFF24292E),
+                    )),
                     onPressed: _errorReport,
                     child: Text('Report'),
                   ),
                   SizedBox(
                     width: 40.0,
                   ),
-                  FlatButton(
-                    color: Colors.white,
+                  TextButton(
+                    style: TextButton.styleFrom(
+                        textStyle: TextStyle(
+                      color: Colors.white,
+                    )),
                     onPressed: () {
                       Navigator.of(context).pop();
                     },

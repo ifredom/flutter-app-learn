@@ -54,7 +54,7 @@ class _MyHomeDemoState extends State<MyHomeDemo> {
 
   _starup() async {
     print('进入启动starup');
-    var myValue = await startSomething();
+    // var myValue = await startSomething();
     print('_myCompleter 只有进入completed 状态后，才会执行打印');
   }
 
@@ -73,7 +73,7 @@ class _MyHomeDemoState extends State<MyHomeDemo> {
       body: Column(
         children: <Widget>[
           Text("123"),
-          RaisedButton(
+          ElevatedButton(
             child: Text('completed'),
             onPressed: () {
               endSomething();

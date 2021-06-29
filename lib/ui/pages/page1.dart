@@ -16,7 +16,7 @@ class Page1Demo extends StatelessWidget {
         body: Container(
           child: Column(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text("跳转到page2"),
                 onPressed: () {
                   print(store.price);

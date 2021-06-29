@@ -23,25 +23,24 @@ class SemanticsDemoWidget extends StatelessWidget {
       label: '被semantics包裹的组件，对搜索引擎而言，如同一个关键词',
       child: Row(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             child: Text("normal"),
             onPressed: () {
               print('test');
             },
           ),
-          FlatButton(
-            color: Colors.blue[700],
-            highlightColor: Colors.black87,
-            colorBrightness: Brightness.dark,
-            splashColor: Colors.grey,
+          TextButton(
+            // color: Colors.blue[700],
+            // highlightColor: Colors.black87,
+            // colorBrightness: Brightness.dark,
+            // splashColor: Colors.grey,
             child: Text('flatbutton'),
             onPressed: () {
               print('flatbutton');
             },
           ),
-          OutlineButton(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0)),
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0))),
             child: Text('flatbutton'),
             onPressed: () {
               print('flatbutton');

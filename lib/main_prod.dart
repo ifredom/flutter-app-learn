@@ -7,7 +7,7 @@ import 'ui/root/room_component.dart';
 
 void main() {
   // 参考 https://github.com/xinsui01/github-app-flutter
-  runZoned(() {
+  runZonedGuarded(() {
     ErrorWidget.builder = (FlutterErrorDetails details) {
       Zone.current.handleUncaughtError(details.exception, details.stack);
       return ErrorPage(details);
@@ -16,7 +16,7 @@ void main() {
         .then((_) {
       runApp(RootComponent());
     });
-  }, onError: (Object obj, StackTrace stack) {
+  }, (Object obj, StackTrace stack) async {
     // Zone中未捕获异常处理回调
     // print(obj);
     // print(stack);

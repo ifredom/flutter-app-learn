@@ -41,7 +41,7 @@ class _Page1State extends State<Page1> {
                 ],
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Materia组件属性： transparency'),
               onPressed: () {
                 Navigator.push(
@@ -75,7 +75,7 @@ class SamplePage extends StatelessWidget {
         // height: MediaQuery.of(context).size.height / 2,
         // width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.of(context).pop();
             },

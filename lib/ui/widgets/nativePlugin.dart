@@ -23,7 +23,7 @@ class _NativePluginDemoState extends State<NativePluginDemo> {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              new RaisedButton(
+              new ElevatedButton(
                 child: new Text('Get Battery Level'),
                 onPressed: _getBatteryLevel,
               ),

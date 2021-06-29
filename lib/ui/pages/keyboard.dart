@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 // 键盘
-class DemoKeyboard extends StatelessWidget {
+class DemoKeyboard extends StatefulWidget {
+  @override
+  _DemoKeyboardState createState() => _DemoKeyboardState();
+}
+
+class _DemoKeyboardState extends State<DemoKeyboard> {
   FocusNode keyboardFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     var board;

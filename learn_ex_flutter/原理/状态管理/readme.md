@@ -52,7 +52,7 @@ Navigator.of(context).pushNamedAndRemoveUntil(
 
 ```dart
 // 跳转并发送参数
-RaisedButton(
+ElevatedButton(
   child: Text('raiseButton'),
   onPressed: () {
     String userName = "John Doe";

@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        RaisedButton(
+        ElevatedButton(
           child: Text('raiseButton'),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(

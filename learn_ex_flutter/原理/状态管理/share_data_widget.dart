@@ -59,7 +59,7 @@ class _InheritedWidgetTestRouteState extends State<InheritedWidgetTestRoute> {
               padding: EdgeInsets.only(bottom: 20),
               child: _TestWidget(), // 子widget中依赖ShareDataWidget
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Increment'),
               onPressed: () {
                 setState(() {

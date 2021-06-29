@@ -75,7 +75,7 @@ class StartUpView extends StatelessWidget {
                     );
                   },
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("provider测试"),
                   onPressed: () {
                     Navigator.of(context).push(
@@ -86,11 +86,10 @@ class StartUpView extends StatelessWidget {
                   },
                 ),
                 Builder(builder: (context) {
-                  return RaisedButton(
+                  return ElevatedButton(
                     child: Text("显示SnackBar"),
                     onPressed: () {
-                      final scaffold = Scaffold.of(context);
-                      scaffold.showSnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: const Text('提示信息'),
                           action: SnackBarAction(label: 'UNDO', onPressed: () {}),
@@ -108,7 +107,7 @@ class StartUpView extends StatelessWidget {
   }
 
   Widget _buildButton({String title = '按钮', Function callback}) {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text(title),
       onPressed: () {
         callback();
@@ -116,6 +115,7 @@ class StartUpView extends StatelessWidget {
     );
   }
 
+  // ignore: unused_element
   Widget _buildTestPartOne() {
     print("_build TestPartOne");
     return Consumer(
@@ -187,7 +187,7 @@ class SamplePage extends StatelessWidget {
             top: -10.0,
             child: Text("X"),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("关闭"),
             onPressed: () {
               Navigator.of(context).pop();
@@ -196,7 +196,7 @@ class SamplePage extends StatelessWidget {
         ]),
       ),
       // actions: <Widget>[
-      //   FlatButton(
+      //   TextButton(
       //     child: Text('close'),
       //     onPressed: () {
       //       Navigator.of(context).pop();

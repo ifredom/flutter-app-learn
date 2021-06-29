@@ -10,6 +10,7 @@ class _PageViewDemoState extends State<PageViewDemo> {
   double _currentPage = 0.0;
   PageController _pageController = PageController(initialPage: 0);
 
+  // ignore: unused_element
   _tap() {
     // 点击下面tabbar的时候执行 pageView 动画跳转方法
     // _pageController.animateToPage(index, duration: new Duration(milliseconds: 500),curve:new ElasticOutCurve(4));

@@ -9,7 +9,7 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      RaisedButton(
+      ElevatedButton(
           child: Text('alertDialog'),
           onPressed: () {
             showDialog(
@@ -18,13 +18,13 @@ class _IfredomTextFieldState extends State<IfredomTextField> {
                       title: Text('提示！'),
                       content: Text('前方高能预警'),
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                           child: Text('取消'),
                           onPressed: () {
                             Navigator.of(context).pop();
                           },
                         ),
-                        FlatButton(
+                        TextButton(
                           child: Text('确定'),
                           onPressed: () {
                             Navigator.of(context).pop();

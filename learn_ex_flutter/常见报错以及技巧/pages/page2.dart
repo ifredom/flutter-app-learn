@@ -18,7 +18,7 @@ import 'page3.dart';
 //         title: Text('纯静态，无数据传递'),
 //         // title: Text('${widget.id}'),
 //       ),
-//       body: RaisedButton(
+//       body: ElevatedButton(
 //         child: Text('下一页'),
 //         onPressed: () {
 //           Navigator.of(context).push(new MaterialPageRoute(
@@ -40,7 +40,7 @@ class Page2 extends StatelessWidget {
         // title: Text('纯静态，无数据传递'),
         title: Text('$id'),
       ),
-      body: RaisedButton(
+      body: ElevatedButton(
         child: Text('下一页'),
         onPressed: () {
           Navigator.of(context).push(new MaterialPageRoute(

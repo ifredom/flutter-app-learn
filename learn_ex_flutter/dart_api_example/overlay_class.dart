@@ -16,6 +16,7 @@ class _CountriesFieldState extends State<CountriesField> {
 
   @override
   void initState() {
+    super.initState();
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         this._overlayEntry = this._createOverlayEntry();

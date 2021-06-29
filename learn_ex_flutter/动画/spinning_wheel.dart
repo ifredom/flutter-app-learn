@@ -54,7 +54,7 @@ class _SpinningWheelState extends State<SpinningWheel> with SingleTickerProvider
             }),
       ),
       // SizedBox(height: 30),
-      RaisedButton(
+      ElevatedButton(
         child: Text('Start/Stop'),
         onPressed: _startOrStop,
       )

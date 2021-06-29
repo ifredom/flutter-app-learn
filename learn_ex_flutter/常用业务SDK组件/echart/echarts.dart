@@ -52,7 +52,7 @@ class _EChartsState extends State<ECharts> {
     return Container(
       height: widget.height,
       color: Colors.white,
-      child: Stack(overflow: Overflow.clip, children: <Widget>[
+      child: Stack(clipBehavior: Clip.hardEdge, children: <Widget>[
         widget.child ?? const Center(child: const CircularProgressIndicator()),
         AnimatedOpacity(
             duration: Duration(milliseconds: 300),

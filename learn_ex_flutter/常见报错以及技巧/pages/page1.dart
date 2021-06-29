@@ -15,7 +15,7 @@ class _Page1State extends State<Page1> {
       appBar: AppBar(
         title: Text('page1'),
       ),
-      body: RaisedButton(
+      body: ElevatedButton(
         child: Text('下一页'),
         onPressed: () {
           Navigator.of(context).push(new MaterialPageRoute(

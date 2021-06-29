@@ -53,8 +53,8 @@ class _ProviderRouteState extends State<ProviderRoute> {
                   ),
                   Builder(
                     builder: (BuildContext context) {
-                      print("RaisedButton build"); // 优化会用到
-                      return RaisedButton(
+                      print("ElevatedButton build"); // 优化会用到
+                      return ElevatedButton(
                         child: Text("添加商品"),
                         onPressed: () {
                           // 给购物车中商品，添加后总价会更新

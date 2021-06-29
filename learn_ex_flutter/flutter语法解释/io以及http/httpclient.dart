@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
-import 'dart:io';
 import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -18,7 +18,7 @@ class _FirstPageState extends State<FirstPage> {
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('获取百度首页'),
               onPressed: _loading
                   ? null

@@ -153,6 +153,7 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
     return _buildWebview();
   }
 
+  // ignore: unused_element
   Widget _buildWebviewScaffold() {
     return WebviewScaffold(
       url: "http://localhost:8081/assets/webview/dist/index.html",
@@ -199,6 +200,7 @@ class _PlayMusicState extends State<PlayMusic> with WidgetsBindingObserver {
     );
   }
 
+  // ignore: unused_element
   Widget _buildInappWebview() {
     return InAppWebView(
       initialUrl: "http://localhost:8081/assets/webview/dist/index.html",

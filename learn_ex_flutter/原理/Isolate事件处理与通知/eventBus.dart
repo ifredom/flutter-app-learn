@@ -18,7 +18,7 @@ class EventBus {
   // 添加订阅者
   void on(eventName, EventCallback f) {
     if (eventName == null) return;
-    _emap[eventName] ??= new List<EventCallback>();
+    _emap[eventName] ??= <EventCallback>[];
     _emap[eventName].add(f);
   }
 

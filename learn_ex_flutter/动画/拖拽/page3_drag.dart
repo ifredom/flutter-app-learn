@@ -77,8 +77,7 @@ class _Page3DragState extends State<Page3Drag> {
               height: 100,
               color: Colors.orange,
               child: DragTarget(
-                builder: (context, List<int> candidateData,
-                    List<dynamic> rejectedData) {
+                builder: (context, List<int> candidateData, List<dynamic> rejectedData) {
                   ///candidateData，当Draggable被拖到DragTarget上的时候的data，已经准备好接受
                   print("----candidateData" + candidateData.toString());
 
@@ -87,9 +86,7 @@ class _Page3DragState extends State<Page3Drag> {
 
                   ///这两个数据都是正拖到上面的时候，还没放到上面，还没松手
                   return Center(
-                    child: Text(candidateData.toString() +
-                        "----" +
-                        rejectedData.toString()),
+                    child: Text(candidateData.toString() + "----" + rejectedData.toString()),
                   );
                 },
 
@@ -106,8 +103,9 @@ class _Page3DragState extends State<Page3Drag> {
                 ///当拖到DragTarget的时候，松手后
                 onAccept: (data) {
                   print("----onAccept,接收" + data.toString());
-                  scaffoldKey.currentState
-                      .showSnackBar(SnackBar(content: Text(data.toString())));
+
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(data.toString())));
+                  // scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(data.toString())));
                 },
 
                 ///拖到上面，没有松手，又离开

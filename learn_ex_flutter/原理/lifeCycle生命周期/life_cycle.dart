@@ -38,7 +38,7 @@ class _CounterWidgetState extends State<CounterWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: FlatButton(
+          child: TextButton(
         child: Text('$_counter'),
         onPressed: () => setState(() => ++_counter),
       )),

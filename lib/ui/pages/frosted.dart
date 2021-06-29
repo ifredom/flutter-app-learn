@@ -25,7 +25,7 @@ class FrostedDemo extends StatelessWidget {
                       color: Colors.grey.shade200.withOpacity(0.5)),
                   child: new Center(
                     child: new Text('Frosted',
-                        style: Theme.of(context).textTheme.display3),
+                        style: Theme.of(context).textTheme.headline3),
                   ),
                 ),
               ),

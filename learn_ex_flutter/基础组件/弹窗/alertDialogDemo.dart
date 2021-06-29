@@ -32,7 +32,7 @@ class AlertDialogDemoPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 3,
         width: MediaQuery.of(context).size.width / 2,
         child: Stack(children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             child: Text("关闭"),
             onPressed: () {
               Navigator.of(context).pop();

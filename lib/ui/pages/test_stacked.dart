@@ -60,7 +60,7 @@ class StartUpView extends StatelessWidget {
                         },
                       ),
                       // UpdateTitleButton(),
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text("加"),
                         onPressed: () {
                           Navigator.of(context).push(MyPopUpRoute(
@@ -70,7 +70,7 @@ class StartUpView extends StatelessWidget {
                           model.add();
                         },
                       ),
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text("跳转"),
                         onPressed: () {
                           Navigator.of(context).push(
@@ -80,17 +80,17 @@ class StartUpView extends StatelessWidget {
                           );
                         },
                       ),
-                      RaisedButton(
+                      ElevatedButton(
                         child: Text("减"),
                         onPressed: () {
                           model.reduce();
                         },
                       ),
                       Builder(builder: (context) {
-                        return RaisedButton(
+                        return ElevatedButton(
                           child: Text("点击1"),
                           onPressed: () {
-                            final scaffold = Scaffold.of(context);
+                            final scaffold = ScaffoldMessenger.of(context);
                             scaffold.showSnackBar(
                               SnackBar(
                                 content: const Text('提示信息'),
@@ -108,7 +108,7 @@ class StartUpView extends StatelessWidget {
   }
 
   Widget _buildButton({String title = '按钮', Function callback}) {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text(title),
       onPressed: () {
         callback();
@@ -116,6 +116,7 @@ class StartUpView extends StatelessWidget {
     );
   }
 
+  // ignore: unused_element
   Widget _buildTestPartOne() {
     print("_build TestPartOne");
     return Consumer(
@@ -187,7 +188,7 @@ class SamplePage extends StatelessWidget {
             top: -10.0,
             child: Text("X"),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("关闭"),
             onPressed: () {
               Navigator.of(context).pop();
@@ -196,7 +197,7 @@ class SamplePage extends StatelessWidget {
         ]),
       ),
       // actions: <Widget>[
-      //   FlatButton(
+      //   TextButton(
       //     child: Text('close'),
       //     onPressed: () {
       //       Navigator.of(context).pop();
